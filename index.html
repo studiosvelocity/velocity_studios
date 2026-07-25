@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Grain / scanline overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo"><span class="logo-bracket">[</span>Velocity<span
+                    class="accent">Studio</span><span class="logo-bracket">]</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero"><span class="nav-idx">index</span>home</a></li>
+                <li><a href="#skills"><span class="nav-idx">stack</span>skills</a></li>
+                <li><a href="#process"><span class="nav-idx">flow</span>process</a></li>
+                <li><a href="#projects"><span class="nav-idx">repo</span>projects</a></li>
+                <li><a href="#team"><span class="nav-idx">crew</span>team</a></li>
+                <li><a href="#contact"><span class="nav-idx">ping</span>contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <canvas id="circuit-canvas"></canvas>
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+            <p class="overline">// Get Online. Get Noticed. Get Results.</p>
+            <h1 class="headline">We build things<br>that <span class="accent">compile</span>.</h1>
+            <p class="sub-headline">We are students, one shared terminal history. This term's coursework, side ventures,
+                and the bugs we're weirdly proud of — in Java, PHP, Arduino, and whatever else refused to work at 2am.
+            </p>
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">View term projects</a>
+                <a href="#team" class="btn btn-secondary">Meet the crew</a>
+                
+            </div>
+            <div class="terminal-window" aria-hidden="true">
+                <div class="terminal-bar">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="terminal-title">velocity@lab:~</span>
+                </div>
+                <div class="terminal-body" id="terminal-body"></div>
+            </div>
+        </div>
+        <div class="scroll-cue"><span></span>scroll</div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="stats-strip">
+        <div class="container stats-grid">
+            <div class="stat-block"><span class="stat-num" data-target="12">0</span><span
+                    class="stat-label">Languages</span></div>
+            <div class="stat-block"><span class="stat-num" data-target="4">0</span><span class="stat-label">Shipped
+                    builds</span></div>
+            <div class="stat-block"><span class="stat-num" data-target="2">0</span><span class="stat-label">Projects
+                    Live</span></div>
+            <div class="stat-block"><span class="stat-num" data-target="4">0</span><span class="stat-label">Years Of
+                    Experience</span></div>
+        </div>
+    </section>
+
+    <!-- Skills & Coursework Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <p class="eyebrow">// stack.list</p>
+            <h2 class="section-title">Skills &amp; Coursework</h2>
+            <p class="section-lede">What the syllabus made us learn, and what we picked up chasing our own projects
+                instead of sleeping.</p>
+
+            <div class="skills-grid">
+                <div class="skill-category tilt-card">
+                    <h3>Core term focus</h3>
+                    <div class="tags">
+                        <span class="tag">Advanced Java</span>
+                        <span class="tag">HTML &amp; CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category tilt-card">
+                    <h3>Additional expertise</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C</span>
+                        <span class="tag">Arduino hardware</span>
+                        <span class="tag">IOT</span>
+                        <span class="tag">C#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section bg-darker">
+        <div class="container">
+            <p class="eyebrow">// build.flow</p>
+            <h2 class="section-title">How a project survives the semester</h2>
+            <p class="section-lede">The pipeline every build in this portfolio actually went through, deadline
+                permitting.</p>
+
+            <div class="process-rail">
+                <div class="process-step tilt-card">
+                    <span class="step-index">01</span>
+                    <h3>Spec it on paper</h3>
+                    <p>Whiteboard the schema and the screens before touching an IDE — usually the night before it's due.
+                    </p>
+                </div>
+                <div class="process-step tilt-card">
+                    <span class="step-index">02</span>
+                    <h3>Build the ugly version</h3>
+                    <p>Get the logic working first. Styling, validation, and dignity come later.</p>
+                </div>
+                <div class="process-step tilt-card">
+                    <span class="step-index">03</span>
+                    <h3>Break it on purpose</h3>
+                    <p>Feed it bad input until it stops crying, then patch whatever it exposed.</p>
+                </div>
+                <div class="process-step tilt-card">
+                    <span class="step-index">04</span>
+                    <h3>Ship &amp; demo</h3>
+                    <p>Push to the shared machine, screen-record a backup demo, present like nothing broke last night.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .project-card .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .project-card .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <!-- Featured Projects Gallery -->
+    <section id="projects" class="section">
+        <div class="container">
+            <p class="eyebrow">// repo.list</p>
+            <h2 class="section-title">Featured projects</h2>
+            <p class="section-lede">Four builds, four different reasons they nearly didn't work.</p>
+
+            <div class="projects-grid">
+                <div class="project-card tilt-card-strong">
+                    <div class="project-image">
+                        <img src="images/krishna.jpg" alt="KLM & Aditya Foundation Website Preview" loading="lazy">
+                    </div>
+                    <div class="project-info" data-domain="klmsadityafoundation.com" data-status="live">
+                        <h3>KLM & Aditya Foundation</h3>
+                        <p class="tech-stack">PHP • MySQL • Web Development</p>
+                        <p class="description">
+                            Official educational web portal for Kishan Lal Memorial Educational Organization & Aditya
+                            Foundation, featuring certificate verification, organizational galleries, and contact
+                            management.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Certificate verification system (DCI / ACI)</li>
+                            <li>Dynamic photo gallery & organizational updates</li>
+                            <li>Responsive UI & localized contact/branch management</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="https://klmsadityafoundation.com/" target="_blank" rel="noopener noreferrer"
+                                class="btn-live">
+                                Visit Website ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card tilt-card-strong">
+                    <div class="project-image">
+                        <img src="images/Dci_logo.jpg" alt="Dream Computer Institute Website Preview" loading="lazy">
+                    </div>
+                    <div class="project-info" data-domain="klmsadityafoundation.com" data-status="live">
+                        <h3>Dream Computer Institute</h3>
+                        <p class="tech-stack">PHP • MySQL • Web Development</p>
+                        <p class="description">
+                            Official web portal for Dream Computer Institute (under KLM & Aditya Foundation), featuring
+                            course listings, student registration, certificate verification, and branch updates.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Online Certificate & Student Verification System</li>
+                            <li>Computer Course Catalog & Admission Portal</li>
+                            <li>Dynamic Notice Board & Photo Gallery</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="https://klmsadityafoundation.com/goodweb/index.php" target="_blank"
+                                rel="noopener noreferrer" class="btn-live">
+                                Visit Website ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card tilt-card-strong">
+                    <div class="project-image" style="background: linear-gradient(135deg, #0b6e5f, #6ab04c);">
+                        <span class="project-glyph">🛒 checkout</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Venture</h3>
+                        <p class="tech-stack">Web Stack</p>
+                        <p>A storefront for our own 4x2.5" vinyl sticker, clothing, and jewelry business, with cart,
+                            checkout, and order tracking end to end.</p>
+                        <ul class="feature-list">
+                            <li>Full cart-to-checkout workflow</li>
+                            <li>Order status tracking for customers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card tilt-card-strong">
+                    <div class="project-image" style="background: linear-gradient(135deg, #3a1a5c, #7f5af0);">
+                        <span class="project-glyph">⚡ sensor.io</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Circuit Sentinel</h3>
+                        <p class="tech-stack">Arduino • C • Sensors</p>
+                        <p>A motion-and-heat sensing desk monitor built on Arduino, logging alerts over serial — our
+                            excuse to finally use the hardware lab.</p>
+                        <ul class="feature-list">
+                            <li>Real-time serial alert logging</li>
+                            <li>Custom threshold calibration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Team Section -->
+    <section id="team" class="section bg-darker">
+    <div class="container">
+        <p class="eyebrow">// crew.json</p>
+        <h2 class="section-title">The team</h2>
+        <p class="section-lede">
+            Diverse specialists, countless commits, and an ongoing debate over tabs vs. spaces.
+        </p>
+
+        <div class="team-grid">
+            <!-- Hemant Bajpai -->
+            <div class="team-card tilt-card-strong">
+                <img src="images/hemant.jpeg" alt="Hemant Bajpai" class="avatar">
+                <h3>Hemant Bajpai</h3>
+                <p class="role">Lead QA &amp; Operations</p>
+                <p class="bio">
+                    Ensures software quality, and cross-browser performance through rigorous testing
+                    while maintaining clear technical docs, API specs, and project guides.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Team Leadership</span>
+                    <span class="chip">Strategist</span>
+                    <span class="chip">Cash Flow Head</span>
+                </div>
+            </div>
+
+            <!-- Aditya Singh Chauhan -->
+            <div class="team-card tilt-card-strong">
+                <img src="images/Adi.jpeg" alt="Aditya Singh Chauhan" class="avatar">
+                <h3>Aditya Singh Chauhan</h3>
+                <p class="role">Database &amp; UI Designer</p>
+                <p class="bio">
+                    Owns the MySQL schemas nobody else wants to touch, plus every responsive layout
+                    decision in this portfolio.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">MySQL</span>
+                    <span class="chip">UI/UX</span>
+                    <span class="chip">JS</span>
+                </div>
+            </div>
+
+            <!-- Akash Deep Shula -->
+            <div class="team-card tilt-card-strong">
+                <img src="images/akash.jpeg" alt="Akash Deep Shula" class="avatar">
+                <h3>Akash Deep Shula</h3>
+                <p class="role">Frontend Developer</p>
+                <p class="bio">Frontend logic across HTML and JS, hardware integration</p>
+                <div class="chip-row">
+                    <span class="chip">Security</span>
+                    <span class="chip">HTML &amp; CSS</span>
+                    <span class="chip">OOPs</span>
+                </div>
+            </div>
+
+            <!-- Sonia Raidas -->
+            <div class="team-card tilt-card-strong">
+                <img src="images/sonia.jpeg" alt="Sonia Raidas" class="avatar">
+                <h3>Sonia Raidas</h3>
+                <p class="role">Communication Head</p>
+                <p class="bio">
+                    Leads media outreach, strategic communications, and community engagement while coordinating
+                    digital platforms and team workflows.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Project Coordination</span>
+                    <span class="chip">Public Relations</span>
+                    <span class="chip">Content Strategy</span>
+                </div>
+            </div>
+
+            <!-- Pragya Yadav -->
+            <div class="team-card tilt-card-strong">
+                <img src="https://ui-avatars.com/api/?name=Pragya+Yadav&amp;background=0D8ABC&amp;color=fff&amp;size=150"
+                    alt="Pragya Yadav" class="avatar">
+                <h3>Pragya Yadav</h3>
+                <p class="role">Client Relations &amp; Operations</p>
+                <p class="bio">
+                    Drives team collaboration, professional communication, and client negotiation while leading
+                    interpersonal training, conflict resolution, and client management.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Project Tester</span>
+                    <span class="chip">Client Negotiation</span>
+                    <span class="chip">Conflict Resolution</span>
+                </div>
+            </div>
+
+            <!-- Adarsh Chauraisya -->
+            <div class="team-card tilt-card-strong">
+                <img src="images/adarsh.jpeg" alt="Adarsh Chauraisya" class="avatar">
+                <h3>Adarsh Chauraisya</h3>
+                <p class="role">Security &amp; QA Engineer</p>
+                <p class="bio">
+                    Tester, project documentation that actually gets read, and running
+                    the e-commerce operations.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Functional Testing Specialist</span>
+                    <span class="chip">Security &amp; Vulnerability Tester</span>
+                    <span class="chip">API &amp; Backend Verifier</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Milestones -->
+    <section class="section">
+        <div class="container">
+            <p class="eyebrow">// term.log</p>
+            <h2 class="section-title">This term, in order</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-date">Week 2</span>
+                    <p>Schema for Mafia Tally locked after three redesigns.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-date">Week 6</span>
+                    <p>Servlet enterprise app passed its first real load test.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-date">Week 9</span>
+                    <p>Sticker storefront took its first live order.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-date">Week 12</span>
+                    <p>Circuit Sentinel stopped false-triggering on the ceiling fan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="section bg-darker">
+        <div class="container contact-container">
+            <div class="contact-text">
+                <p class="eyebrow">// contact.send()</p>
+                <h2 class="section-title" style="text-align: left;">Let's connect</h2>
+                <p>Academic inquiries, freelance proposals, or a genuine debate about web development and cybersecurity
+                    — we're ready to talk.</p>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Your message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <h2>Velocity<span class="accent">Studio</span></h2>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">Instagram</a>
+                <a href="#">Whatsapp channel</a>
+            </div>
+            <p>&copy; 2026 Velocity Studio. Built by students team who should be studying.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

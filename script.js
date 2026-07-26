@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalBody = document.getElementById('terminal-body');
     const bootLines = [
         '$ whoami',
-        'velocity_studio — Fast. Scalable. Velocity.',
+        'velocity_studios — Fast. Scalable. Velocity.',
         '$ ./run --projects',
         '[ok] KLM & Aditya Foundation (live) .......... compiled',
         '[ok] Dream Computer Institute (live) ...... compiled',

@@ -49,23 +49,57 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
-    /* 4. Contact form handling */
+    /* 4. Contact form handling (Web3Forms Integration) */
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.textContent;
 
-        btn.textContent = 'Message sent';
-        btn.style.background = 'var(--secondary)';
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        contactForm.reset();
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.textContent;
 
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = 'var(--accent)';
-        }, 3000);
-    });
+            // UI feedback while sending
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status === 200) {
+                    btn.textContent = 'Message sent! ✓';
+                    btn.style.background = 'var(--secondary)';
+                    contactForm.reset();
+                } else {
+                    btn.textContent = 'Failed to send';
+                    console.error(res.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                btn.textContent = 'Error sending';
+            })
+            .finally(() => {
+                // Reset button state after 3 seconds
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--accent)';
+                    btn.disabled = false;
+                }, 3000);
+            });
+        });
+    }
 
     /* 5. 3D tilt effect for cards */
     const tiltEls = document.querySelectorAll('.tilt-card, .tilt-card-strong');

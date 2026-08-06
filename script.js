@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '$ ./run --projects',
         '[ok] KLM & Aditya Foundation (live) .......... compiled',
         '[ok] Dream Computer Institute (live) ...... compiled',
-        '[ok] sticker-storefront ... compiled',
-        '[ok] circuit-sentinel ..... compiled',
+        '[ok] PK Prainting  ... compiled',
+        '[ok] The Rustic Fork ..... compiled',
         '$ status: all systems shipped'
     ];
 

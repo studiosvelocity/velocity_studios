@@ -1,21 +1,21 @@
 /* ==========================================================
-   Velocity Studio — Systems Lab theme (Light Edition)
-   Palette: clean white + deep mint + solder orange
+   Velocity Studio — Systems Lab theme (Soft Light Edition)
+   Palette: soft slate + emerald mint + deep orange
    ========================================================== */
 
 :root {
-    --bg-void: #ffffff;          
-    --bg-darker: #f8fafc;        
-    --bg-panel: #f1f5f9;         
-    --card-bg: #ffffff;          
-    --text-main: #0f172a;        
+    --bg-void: #f1f5f9;          /* Soft, cool gray instead of blinding white */
+    --bg-darker: #e2e8f0;        /* Slightly deeper gray for alternating sections */
+    --bg-panel: #cbd5e1;         /* Muted gray for panels */
+    --card-bg: #ffffff;          /* Pure white just for cards to make them stand out */
+    --text-main: #334155;        /* Softer dark slate text (easier on eyes than black) */
     --text-muted: #64748b;       
-    --accent: #00b37e;           
-    --accent-dim: rgba(0, 179, 126, 0.15);
-    --accent-hover: #00996b;
-    --secondary: #e6512e;        
-    --border: #e2e8f0;           
-    --grid-line: rgba(0, 0, 0, 0.05); 
+    --accent: #059669;           /* Deepened mint green for better readability */
+    --accent-dim: rgba(5, 150, 105, 0.15);
+    --accent-hover: #047857;
+    --secondary: #ea580c;        /* Deepened solder orange */
+    --border: #cbd5e1;           /* Slightly darker border to define shapes */
+    --grid-line: rgba(0, 0, 0, 0.04); 
     --transition: all 0.3s ease;
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -89,7 +89,7 @@ ul { list-style: none; }
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(241, 245, 249, 0.85); /* Matches the soft slate background */
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     z-index: 1000;
@@ -233,7 +233,7 @@ ul { list-style: none; }
 .btn-primary:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 179, 126, 0.25);
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.25);
 }
 
 .btn-secondary {
@@ -251,13 +251,12 @@ ul { list-style: none; }
 /* Terminal window */
 .terminal-window {
     text-align: left;
-    background: rgba(241, 245, 249, 0.85);
+    background: #1e293b; /* Made the terminal dark again so it looks like a real terminal! */
     border: 1px solid var(--border);
     border-radius: 10px;
     max-width: 560px;
     margin: 0 auto;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
 .terminal-bar {
@@ -265,7 +264,7 @@ ul { list-style: none; }
     align-items: center;
     gap: 6px;
     padding: 0.7rem 1rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid #334155;
 }
 
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
@@ -276,14 +275,14 @@ ul { list-style: none; }
 .terminal-title {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: #94a3b8;
     margin-left: 8px;
 }
 
 .terminal-body {
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: var(--accent);
+    color: #34d399; /* Bright mint just for the terminal text */
     padding: 1rem 1.2rem 1.3rem;
     min-height: 84px;
     white-space: pre-wrap;
@@ -294,7 +293,7 @@ ul { list-style: none; }
     display: inline-block;
     width: 7px;
     height: 1em;
-    background: var(--accent);
+    background: #34d399;
     vertical-align: text-bottom;
     animation: blink 1s step-end infinite;
 }
@@ -456,7 +455,7 @@ ul { list-style: none; }
 
 .project-card:hover {
     border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0, 179, 126, 0.08);
+    box-shadow: 0 20px 40px rgba(5, 150, 105, 0.08);
 }
 
 .project-image {
@@ -468,6 +467,7 @@ ul { list-style: none; }
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-main);
+    background: var(--bg-darker); /* Replaced plain white so images have background */
 }
 
 .project-info { padding: 1.6rem; }

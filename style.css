@@ -8,7 +8,7 @@
     --bg-darker: #f1f5f9;        /* Slightly deeper shade for alternating sections */
     --bg-panel: #e2e8f0;         /* Soft gray for tags and inactive elements */
     --card-bg: #ffffff;          /* Pure white for cards to create depth */
-    --bg-nav: rgba(248, 250, 252, 0.85); /* Menu matches the background */
+    --bg-nav: #ffffff;           /* Solid white menu so it never darkens on scroll */
     
     --text-main: #0f172a;        /* Deep slate text for high contrast and easy reading */
     --text-muted: #475569;       
@@ -96,8 +96,6 @@ ul { list-style: none; }
     top: 0;
     width: 100%;
     background: var(--bg-nav);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     z-index: 1000;
     border-bottom: 1px solid var(--border);
     transition: var(--transition);

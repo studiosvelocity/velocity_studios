@@ -4,33 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velocity Studios</title>
+
+    <title>Velocity Studios | Websites & Digital Solutions for Businesses</title>
+    <meta name="description" content="Velocity Studios is a student-led web development team building professional business websites, web applications and digital experiences.">
+    <meta name="keywords" content="web development, business website, website design, PHP, MySQL, JavaScript, Lucknow web developer, Velocity Studios">
+    <meta name="author" content="Velocity Studios">
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Grain / scanline overlay -->
     <div class="grain-overlay"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo"><span class="logo-bracket">[</span>Velocity <span
-                    class="accent">Studios</span><span class="logo-bracket">]</span></a>
+            <a href="#hero" class="logo">
+                <span class="logo-bracket">[</span>Velocity <span class="accent">Studios</span><span class="logo-bracket">]</span>
+            </a>
+
             <ul class="nav-links">
-                <li><a href="#hero"><span class="nav-idx">index</span>home</a></li>
-                <li><a href="#skills"><span class="nav-idx">stack</span>skills</a></li>
-                <li><a href="#process"><span class="nav-idx">flow</span>process</a></li>
-                <li><a href="#projects"><span class="nav-idx">repo</span>projects</a></li>
-                <li><a href="#team"><span class="nav-idx">crew</span>team</a></li>
-                <li><a href="#contact"><span class="nav-idx">ping</span>contact</a></li>
+                <li><a href="#hero"><span class="nav-idx">01</span>home</a></li>
+                <li><a href="#services"><span class="nav-idx">02</span>services</a></li>
+                <li><a href="#projects"><span class="nav-idx">03</span>work</a></li>
+                <li><a href="#process"><span class="nav-idx">04</span>process</a></li>
+                <li><a href="#team"><span class="nav-idx">05</span>team</a></li>
+                <li><a href="#contact"><span class="nav-idx">06</span>contact</a></li>
             </ul>
-            <div class="hamburger">
+
+            <div class="hamburger" aria-label="Open menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -38,166 +45,190 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="hero">
         <canvas id="circuit-canvas"></canvas>
         <div class="hero-vignette"></div>
+
         <div class="hero-content">
-            <p class="overline">// Get Online. Get Noticed. Get Results.</p>
-            <h1 class="headline">We build things<br>that <span class="accent">compile</span>.</h1>
-            <p class="sub-headline">We are students, one shared terminal history. This term's coursework, side ventures,
-                and the bugs we're weirdly proud of — in Java, PHP and whatever else refused to work at 2am.
+            <p class="overline">// Websites built for business growth.</p>
+
+            <h1 class="headline">
+                We build websites<br>
+                that <span class="accent">grow businesses</span>.
+            </h1>
+
+            <p class="sub-headline">
+                Velocity Studios is a student-led digital team creating modern business websites,
+                web applications and digital experiences that help brands look professional,
+                build trust and turn visitors into customers.
             </p>
+
             <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">View term projects</a>
-                <a href="#team" class="btn btn-secondary">Meet the crew</a>
-                
+                <a href="#projects" class="btn btn-primary">See Our Work</a>
+                <a href="#contact" class="btn btn-secondary">Start a Project →</a>
             </div>
+
             <div class="terminal-window" aria-hidden="true">
                 <div class="terminal-bar">
-                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                    <span class="terminal-title">velocity@lab:~</span>
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">velocity@studio:~</span>
                 </div>
                 <div class="terminal-body" id="terminal-body"></div>
             </div>
         </div>
+
         <div class="scroll-cue"><span></span>scroll</div>
     </section>
 
-    <!-- Stats strip -->
+    <!-- Trust / Stats -->
     <section class="stats-strip">
         <div class="container stats-grid">
-            <div class="stat-block"><span class="stat-num" data-target="12">0</span><span
-                    class="stat-label">Languages</span></div>
-            <div class="stat-block"><span class="stat-num" data-target="4">0</span><span class="stat-label">Shipped
-                    builds</span></div>
-            <div class="stat-block"><span class="stat-num" data-target="2">0</span><span class="stat-label">Projects
-                    Live</span></div>
-            <div class="stat-block"><span class="stat-num" data-target="4">0</span><span class="stat-label">Years Of
-                    Experience</span></div>
+            <div class="stat-block">
+                <span class="stat-num" data-target="6">0</span>
+                <span class="stat-label">Team Members</span>
+            </div>
+
+            <div class="stat-block">
+                <span class="stat-num" data-target="4">0</span>
+                <span class="stat-label">Featured Builds</span>
+            </div>
+
+            <div class="stat-block">
+                <span class="stat-num" data-target="10">0</span>
+                <span class="stat-label">Tech Skills</span>
+            </div>
+
+            <div class="stat-block">
+                <span class="stat-num" data-target="1">0</span>
+                <span class="stat-label">Goal: Your Growth</span>
+            </div>
         </div>
     </section>
 
-    <!-- Skills & Coursework Section -->
-    <section id="skills" class="section">
+    <!-- Services -->
+    <section id="services" class="section">
         <div class="container">
-            <p class="eyebrow">// stack.list</p>
-            <h2 class="section-title">Skills &amp; Coursework</h2>
-            <p class="section-lede">What the syllabus made us learn, and what we picked up chasing our own projects
-                instead of sleeping.</p>
+            <p class="eyebrow">// services.build()</p>
+            <h2 class="section-title">Digital solutions for businesses</h2>
+            <p class="section-lede">
+                You don't need a complicated digital setup. You need a website that looks trustworthy,
+                works properly and makes it easy for customers to contact you.
+            </p>
 
             <div class="skills-grid">
                 <div class="skill-category tilt-card">
-                    <h3>Core term focus</h3>
+                    <h3>Business Websites</h3>
+                    <p>Professional, responsive websites for local businesses, services, institutes, restaurants and growing brands.</p>
                     <div class="tags">
-                        <span class="tag">Advanced Java</span>
-                        <span class="tag">HTML &amp; CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">PHP</span>
-                        <span class="tag">MySQL</span>
+                        <span class="tag">Responsive</span>
+                        <span class="tag">Modern UI</span>
+                        <span class="tag">SEO Basics</span>
                     </div>
                 </div>
+
                 <div class="skill-category tilt-card">
-                    <h3>Additional expertise</h3>
+                    <h3>Web Applications</h3>
+                    <p>Custom systems with forms, dashboards, databases, authentication and business-specific functionality.</p>
                     <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C</span>
-                        <span class="tag">DBMS</span>
-                        <span class="tag">IOT</span>
-                        <span class="tag">C#</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="skill-category tilt-card">
+                    <h3>UI / UX & Branding</h3>
+                    <p>Clean interfaces and digital visuals designed to make your business look credible and memorable.</p>
+                    <div class="tags">
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Branding</span>
+                        <span class="tag">Visual Design</span>
+                    </div>
+                </div>
+
+                <div class="skill-category tilt-card">
+                    <h3>Support & Improvements</h3>
+                    <p>Website updates, fixes, content changes and ongoing improvements after your website goes live.</p>
+                    <div class="tags">
+                        <span class="tag">Maintenance</span>
+                        <span class="tag">Testing</span>
+                        <span class="tag">Support</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section id="process" class="section bg-darker">
+    <!-- Why Us -->
+    <section class="section bg-darker">
         <div class="container">
-            <p class="eyebrow">// build.flow</p>
-            <h2 class="section-title">How a project survives the semester</h2>
-            <p class="section-lede">The pipeline every build in this portfolio actually went through, deadline
-                permitting.</p>
+            <p class="eyebrow">// why.velocity</p>
+            <h2 class="section-title">Why businesses choose us</h2>
 
             <div class="process-rail">
                 <div class="process-step tilt-card">
                     <span class="step-index">01</span>
-                    <h3>Spec it on paper</h3>
-                    <p>Whiteboard the schema and the screens before touching an IDE — usually the night before it's due.
-                    </p>
+                    <h3>Business-first</h3>
+                    <p>We focus on what your customers need to see, understand and do—not just on writing code.</p>
                 </div>
+
                 <div class="process-step tilt-card">
                     <span class="step-index">02</span>
-                    <h3>Build the ugly version</h3>
-                    <p>Get the logic working first. Styling, validation, and dignity come later.</p>
+                    <h3>Modern & responsive</h3>
+                    <p>Your website is designed to work across phones, tablets and desktops with a professional look.</p>
                 </div>
+
                 <div class="process-step tilt-card">
                     <span class="step-index">03</span>
-                    <h3>Break it on purpose</h3>
-                    <p>Feed it bad input until it stops crying, then patch whatever it exposed.</p>
+                    <h3>Direct communication</h3>
+                    <p>You work directly with our team, so requirements, revisions and project decisions stay clear.</p>
                 </div>
+
                 <div class="process-step tilt-card">
                     <span class="step-index">04</span>
-                    <h3>Ship &amp; demo</h3>
-                    <p>Push to the shared machine, screen-record a backup demo, present like nothing broke last night.
-                    </p>
+                    <h3>Affordable development</h3>
+                    <p>As a young student-led team, we keep our process lean and offer practical solutions for growing businesses.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <style>
-        .project-card .project-image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-
-        .project-card .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-    </style>
-
-    <!-- Featured Projects Gallery -->
+    <!-- Projects -->
     <section id="projects" class="section">
         <div class="container">
-            <p class="eyebrow">// repo.list</p>
-            <h2 class="section-title">Featured projects</h2>
-            <p class="section-lede">Four builds, four different reasons they nearly didn't work.</p>
+            <p class="eyebrow">// portfolio.live</p>
+            <h2 class="section-title">Work we're proud of</h2>
+            <p class="section-lede">
+                Real builds across education, services, non-profit and hospitality. Every project is an opportunity to solve a different business problem.
+            </p>
 
             <div class="projects-grid">
+
                 <div class="project-card tilt-card-strong">
                     <div class="project-image">
-                        <img src="krishna.jpg" alt="KLM & Aditya Foundation Website Preview" loading="lazy">
+                        <img src="krishna.jpg" alt="KLM and Aditya Foundation website preview" loading="lazy">
                     </div>
-                    <div class="project-info" data-domain="klmsadityafoundation.com" data-status="live">
+
+                    <div class="project-info">
                         <h3>KLM & Aditya Foundation</h3>
                         <p class="tech-stack">PHP • MySQL • Web Development</p>
+
                         <p class="description">
-                            Official educational web portal for Kishan Lal Memorial Educational Organization & Aditya
-                            Foundation, featuring certificate verification, organizational galleries, and contact
-                            management.
+                            A professional educational and organizational web portal with verification,
+                            galleries, updates and contact management.
                         </p>
+
                         <ul class="feature-list">
-                            <li>Certificate verification system (DCI / ACI)</li>
-                            <li>Dynamic photo gallery & organizational updates</li>
-                            <li>Responsive UI & localized contact/branch management</li>
+                            <li>Certificate verification system</li>
+                            <li>Dynamic gallery & organizational updates</li>
+                            <li>Responsive contact and branch information</li>
                         </ul>
+
                         <div class="project-actions">
-                            <a href="https://klmsadityafoundation.com/" target="_blank" rel="noopener noreferrer"
-                                class="btn-live">
+                            <a href="https://klmsadityafoundation.com/" target="_blank" rel="noopener noreferrer" class="btn-live">
                                 Visit Website ↗
                             </a>
                         </div>
@@ -206,250 +237,379 @@
 
                 <div class="project-card tilt-card-strong">
                     <div class="project-image">
-                        <img src="Dci_logo.jpg" alt="Dream Computer Institute Website Preview" loading="lazy">
+                        <img src="Dci_logo.jpg" alt="Dream Computer Institute website preview" loading="lazy">
                     </div>
-                    <div class="project-info" data-domain="klmsadityafoundation.com" data-status="live">
+
+                    <div class="project-info">
                         <h3>Dream Computer Institute</h3>
                         <p class="tech-stack">PHP • MySQL • Web Development</p>
+
                         <p class="description">
-                            Official web portal for Dream Computer Institute (under KLM & Aditya Foundation), featuring
-                            course listings, student registration, certificate verification, and branch updates.
+                            An institute website designed to present courses, student services,
+                            verification tools and important updates in one place.
                         </p>
+
                         <ul class="feature-list">
-                            <li>Online Certificate & Student Verification System</li>
-                            <li>Computer Course Catalog & Admission Portal</li>
-                            <li>Dynamic Notice Board & Photo Gallery</li>
+                            <li>Course catalogue & admission portal</li>
+                            <li>Student and certificate verification</li>
+                            <li>Notice board & photo gallery</li>
                         </ul>
+
                         <div class="project-actions">
-                            <a href="https://klmsadityafoundation.com/goodweb/index.php" target="_blank"
-                                rel="noopener noreferrer" class="btn-live">
+                            <a href="https://klmsadityafoundation.com/goodweb/index.php" target="_blank" rel="noopener noreferrer" class="btn-live">
                                 Visit Website ↗
                             </a>
                         </div>
                     </div>
                 </div>
-                
-    <div class="project-card tilt-card-strong">
+
+                <div class="project-card tilt-card-strong">
                     <div class="project-image">
-                        <img src="pk.jpg" alt="PK Painting Services" loading="lazy">
+                        <img src="pk.jpg" alt="PK Painting Services website preview" loading="lazy">
                     </div>
-        <div class="project-info">
-        <h3>PK Painting Services</h3>
-        <p class="tech-stack">HTML5 • CSS3 • JavaScript</p>
-        <p>A modern web application for residential and commercial painting services, featuring interactive color previews, portfolio showcases, and quick instant estimates.</p>
-        <ul class="feature-list">
-            <li>Interactive paint cost & room estimator</li>
-            <li>Before/After project gallery & direct booking</li>
-        </ul>
-        <div class="project-actions">
-            <a href="https://projectsthings1-dev.github.io/PK_Painting/" target="_blank" rel="noopener noreferrer" class="btn-live">
-                Visit Website ↗
-            </a>
-        </div>
-        </div>
-    </div>
 
-    <div class="project-card tilt-card-strong">
-    <div class="project-image">
-        <img src="TRF2.png" alt="PK Painting Services" loading="lazy">
-     </div>
-    <div class="project-info">
-        <h3>The Rustic Fork</h3>
-        <p class="tech-stack">HTML • CSS • JS</p>
-        <p>A beautifully designed restaurant website focusing on upcoming events, bookings, and an interactive menu showcase.</p>
-        <ul class="feature-list">
-            <li>Dynamic event scheduling and display</li>
-            <li>Responsive, rustic-themed UI design</li>
-        </ul>
-        <div class="project-actions">
-            <a href="https://projectsthings1-dev.github.io/The_Rustic_Fork/" target="_blank" rel="noopener noreferrer" class="btn-live">
-                Visit Website ↗
-            </a>
-        </div>
-    </div>
-</div>
+                    <div class="project-info">
+                        <h3>PK Painting Services</h3>
+                        <p class="tech-stack">HTML5 • CSS3 • JavaScript</p>
 
-                
+                        <p class="description">
+                            A service-focused website built to showcase painting work and make it easier
+                            for customers to explore services and request estimates.
+                        </p>
+
+                        <ul class="feature-list">
+                            <li>Interactive paint cost & room estimator</li>
+                            <li>Before/after project showcase</li>
+                            <li>Direct booking / enquiry flow</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <a href="https://projectsthings1-dev.github.io/PK_Painting/" target="_blank" rel="noopener noreferrer" class="btn-live">
+                                Visit Website ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card tilt-card-strong">
+                    <div class="project-image">
+                        <img src="TRF2.png" alt="The Rustic Fork restaurant website preview" loading="lazy">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>The Rustic Fork</h3>
+                        <p class="tech-stack">HTML • CSS • JavaScript</p>
+
+                        <p class="description">
+                            A restaurant website focused on presentation, events, bookings and an
+                            interactive menu experience.
+                        </p>
+
+                        <ul class="feature-list">
+                            <li>Event scheduling and display</li>
+                            <li>Responsive restaurant-focused UI</li>
+                            <li>Interactive menu presentation</li>
+                        </ul>
+
+                        <div class="project-actions">
+                            <a href="https://projectsthings1-dev.github.io/The_Rustic_Fork/" target="_blank" rel="noopener noreferrer" class="btn-live">
+                                Visit Website ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- The Team Section -->
-    <section id="team" class="section bg-darker">
-    <div class="container">
-        <p class="eyebrow">// crew.json</p>
-        <h2 class="section-title">The team</h2>
-        <p class="section-lede">
-            Diverse specialists, countless commits, and an ongoing debate over tabs vs. spaces.
-        </p>
+    <!-- Process -->
+    <section id="process" class="section bg-darker">
+        <div class="container">
+            <p class="eyebrow">// project.flow</p>
+            <h2 class="section-title">A simple process. No confusion.</h2>
+            <p class="section-lede">
+                From your first message to launch, we keep the project clear and structured.
+            </p>
 
-        <div class="team-grid">
-            <!-- Hemant Bajpai -->
-            <div class="team-card tilt-card-strong">
-                <img src="hemant.jpeg" alt="Hemant Bajpai" class="avatar">
-                <h3>Hemant Bajpai</h3>
-                <p class="role">Lead QA &amp; Operations</p>
-                <p class="bio">
-                    Ensures software quality, and cross-browser performance through rigorous testing
-                    while maintaining clear technical docs, API specs, and project guides.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Team Leadership</span>
-                    <span class="chip">Strategist</span>
-                    <span class="chip">Cash Flow Head</span>
+            <div class="process-rail">
+                <div class="process-step tilt-card">
+                    <span class="step-index">01</span>
+                    <h3>Discover</h3>
+                    <p>We understand your business, audience, goals, required pages and functionality.</p>
                 </div>
-            </div>
 
-            <!-- Aditya Singh Chauhan -->
-            <div class="team-card tilt-card-strong">
-                <img src="Adi.jpeg" alt="Aditya Singh Chauhan" class="avatar">
-                <h3>Aditya Singh Chauhan</h3>
-                <p class="role">Database &amp; UI Designer</p>
-                <p class="bio">
-                    Owns the MySQL schemas nobody else wants to touch, plus every responsive layout
-                    decision in this portfolio.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">MySQL</span>
-                    <span class="chip">UI/UX</span>
-                    <span class="chip">JS</span>
+                <div class="process-step tilt-card">
+                    <span class="step-index">02</span>
+                    <h3>Design</h3>
+                    <p>We plan the layout, content structure and visual direction before development.</p>
                 </div>
-            </div>
 
-            <!-- Akash Deep Shula -->
-            <div class="team-card tilt-card-strong">
-                <img src="akash.jpeg" alt="Akash Deep Shukla" class="avatar">
-                <h3>Akash Deep Shukla</h3>
-                <p class="role">Frontend Developer</p>
-                <p class="bio">Frontend logic across HTML and JS, hardware integration</p>
-                <div class="chip-row">
-                    <span class="chip">Security</span>
-                    <span class="chip">HTML &amp; CSS</span>
-                    <span class="chip">OOPs</span>
+                <div class="process-step tilt-card">
+                    <span class="step-index">03</span>
+                    <h3>Develop</h3>
+                    <p>Our developers build the website and implement the required functionality.</p>
                 </div>
-            </div>
 
-            <!-- Sonia Raidas -->
-            <div class="team-card tilt-card-strong">
-                <img src="sonia.jpeg" alt="Sonia Raidas" class="avatar">
-                <h3>Sonia Raidas</h3>
-                <p class="role">Communication Head</p>
-                <p class="bio">
-                    Leads media outreach, strategic communications, and community engagement while coordinating
-                    digital platforms and team workflows.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Project Coordination</span>
-                    <span class="chip">Public Relations</span>
-                    <span class="chip">Content Strategy</span>
-                </div>
-            </div>
-
-            <!-- Pragya Yadav -->
-            <div class="team-card tilt-card-strong">
-                <img src="pragyaa.jpeg"
-                    alt="Pragya Yadav" class="avatar">
-                <h3>Pragya Yadav</h3>
-                <p class="role">Client Relations &amp; Operations</p>
-                <p class="bio">
-                    Drives team collaboration, professional communication, and client negotiation while leading
-                    interpersonal training, conflict resolution, and client management.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Project Tester</span>
-                    <span class="chip">Client Negotiation</span>
-                    <span class="chip">Conflict Resolution</span>
-                </div>
-            </div>
-
-            <!-- Adarsh Chauraisya -->
-            <div class="team-card tilt-card-strong">
-                <img src="adarsh.jpeg" alt="Adarsh Chauraisya" class="avatar">
-                <h3>Adarsh Chauraisya</h3>
-                <p class="role">Security &amp; QA Engineer</p>
-                <p class="bio">
-                    Tester, project documentation that actually gets read, and running
-                    the e-commerce operations.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Functional Testing Specialist</span>
-                    <span class="chip">Security &amp; Vulnerability Tester</span>
-                    <span class="chip">API &amp; Backend Verifier</span>
+                <div class="process-step tilt-card">
+                    <span class="step-index">04</span>
+                    <h3>Test & launch</h3>
+                    <p>We test the important flows, fix issues and prepare the website for launch.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-    <!-- Milestones -->
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section">
+        <div class="container">
+            <p class="eyebrow">// team.velocity</p>
+            <h2 class="section-title">Meet the team</h2>
+            <p class="section-lede">
+                A six-person student-led team covering development, design, client communication, operations and quality.
+            </p>
+
+            <div class="team-grid">
+
+                <div class="team-card tilt-card-strong">
+                    <img src="hemant.jpeg" alt="Hemant Bajpai" class="avatar">
+                    <h3>Hemant Bajpai</h3>
+                    <p class="role">Founder & Lead Developer</p>
+                    <p class="bio">
+                        Leads the agency, technical direction, development and final project decisions.
+                        Keeps the team focused on delivering useful business solutions.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Leadership</span>
+                        <span class="chip">Development</span>
+                        <span class="chip">Strategy</span>
+                    </div>
+                </div>
+
+                <div class="team-card tilt-card-strong">
+                    <img src="Adi.jpeg" alt="Aditya Singh Chauhan" class="avatar">
+                    <h3>Aditya Singh Chauhan</h3>
+                    <p class="role">Database & UI Designer</p>
+                    <p class="bio">
+                        Works on database structure and interface decisions to keep projects organized,
+                        responsive and easy to use.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">MySQL</span>
+                        <span class="chip">UI/UX</span>
+                        <span class="chip">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="team-card tilt-card-strong">
+                    <img src="akash.jpeg" alt="Akash Deep Shukla" class="avatar">
+                    <h3>Akash Deep Shukla</h3>
+                    <p class="role">Frontend Developer</p>
+                    <p class="bio">
+                        Builds responsive interfaces and frontend interactions with a focus on clean,
+                        practical user experiences.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="team-card tilt-card-strong">
+                    <img src="sonia.jpeg" alt="Sonia Raidas" class="avatar">
+                    <h3>Sonia Raidas</h3>
+                    <p class="role">Marketing & Communications</p>
+                    <p class="bio">
+                        Handles communication, content direction, outreach and coordination that help
+                        the team present projects professionally.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Communication</span>
+                        <span class="chip">Content</span>
+                        <span class="chip">Outreach</span>
+                    </div>
+                </div>
+
+                <div class="team-card tilt-card-strong">
+                    <img src="pragyaa.jpeg" alt="Pragya Yadav" class="avatar">
+                    <h3>Pragya Yadav</h3>
+                    <p class="role">Client Relations & Operations</p>
+                    <p class="bio">
+                        Supports client communication, coordination, requirements and smooth movement
+                        of projects from discussion to delivery.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Client Relations</span>
+                        <span class="chip">Negotiation</span>
+                        <span class="chip">Operations</span>
+                    </div>
+                </div>
+
+                <div class="team-card tilt-card-strong">
+                    <img src="adarsh.jpeg" alt="Adarsh Chauraisya" class="avatar">
+                    <h3>Adarsh Chauraisya</h3>
+                    <p class="role">QA & Security</p>
+                    <p class="bio">
+                        Tests project functionality, checks important security concerns and verifies
+                        backend/API behaviour before delivery.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">QA Testing</span>
+                        <span class="chip">Security</span>
+                        <span class="chip">Backend Testing</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section bg-darker">
+        <div class="container">
+            <p class="eyebrow">// packages.starting_from</p>
+            <h2 class="section-title">Simple packages for growing businesses</h2>
+            <p class="section-lede">
+                Every business is different, so final pricing depends on pages, functionality and content.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-category tilt-card">
+                    <h3>Starter</h3>
+                    <p class="tech-stack">From ₹4,999</p>
+                    <p>Best for a small business that needs a clean online presence.</p>
+                    <div class="tags">
+                        <span class="tag">1–3 Pages</span>
+                        <span class="tag">Responsive</span>
+                        <span class="tag">WhatsApp</span>
+                        <span class="tag">Contact Form</span>
+                    </div>
+                </div>
+
+                <div class="skill-category tilt-card">
+                    <h3>Business</h3>
+                    <p class="tech-stack">From ₹9,999</p>
+                    <p>A more complete website for businesses ready to look established online.</p>
+                    <div class="tags">
+                        <span class="tag">5–7 Pages</span>
+                        <span class="tag">Premium UI</span>
+                        <span class="tag">Maps</span>
+                        <span class="tag">SEO Basics</span>
+                    </div>
+                </div>
+
+                <div class="skill-category tilt-card">
+                    <h3>Custom</h3>
+                    <p class="tech-stack">From ₹19,999</p>
+                    <p>For custom systems that need databases, dashboards, authentication or advanced functionality.</p>
+                    <div class="tags">
+                        <span class="tag">Web App</span>
+                        <span class="tag">Database</span>
+                        <span class="tag">Admin Panel</span>
+                        <span class="tag">Custom Features</span>
+                    </div>
+                </div>
+
+                <div class="skill-category tilt-card">
+                    <h3>Maintenance</h3>
+                    <p class="tech-stack">Custom monthly plans</p>
+                    <p>Keep your website updated after launch with content changes, fixes and improvements.</p>
+                    <div class="tags">
+                        <span class="tag">Updates</span>
+                        <span class="tag">Bug Fixes</span>
+                        <span class="tag">Support</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
     <section class="section">
         <div class="container">
-            <p class="eyebrow">// term.log</p>
-            <h2 class="section-title">This term, in order</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-date">Week 2</span>
-                    <p>Schema for The Rustic Fork locked after three redesigns.</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-date">Week 6</span>
-                    <p>PK Painting passed its first real load test.</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-date">Week 9</span>
-                    <p>Dream Computer Institute took its first live class.</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-date">Week 12</span>
-                    <p>KLM & Aditya Foundation service to many people's</p>
-                </div>
+            <p class="eyebrow">// ready_to_launch</p>
+            <h2 class="section-title">Your business deserves a better website.</h2>
+            <p class="section-lede">
+                Tell us what you do, what you need and what you want your website to achieve.
+                We'll discuss the right approach for your business.
+            </p>
+
+            <div class="cta-group" style="justify-content:center;">
+                <a href="#contact" class="btn btn-primary">Start Your Project →</a>
+                <a href="#projects" class="btn btn-secondary">View Our Work</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Footer -->
+    <!-- Contact -->
     <section id="contact" class="section bg-darker">
         <div class="container contact-container">
-            <div class="contact-text">
-                <p class="eyebrow">// contact.send()</p>
-                <h2 class="section-title" style="text-align: left;">Let's connect</h2>
-                <p>Academic inquiries, freelance proposals, or a genuine debate about web development and full stack dev.
-                    — we're ready to build.</p>
-            </div>
-            <form id="contact-form" class="contact-form">
-    <!-- Web3Forms Access Key -->
-    <input type="hidden" name="access_key" value="2d0c9e83-ccb6-4052-9167-597a8ea749c7">
 
-    <div class="form-group">
-        <input type="text" name="name" id="name" placeholder="Your name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" name="email" id="email" placeholder="Your email" required>
-    </div>
-    <div class="form-group">
-        <textarea name="message" id="message" rows="5" placeholder="Your message" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Send message</button>
-</form>
+            <div class="contact-text">
+                <p class="eyebrow">// project.request()</p>
+                <h2 class="section-title" style="text-align:left;">Let's build something for your business.</h2>
+
+                <p>
+                    Looking for a business website, web application or a digital refresh?
+                    Send us your requirements and our team will get back to you.
+                </p>
+
+                <div class="cta-group">
+                    <a href="https://chat.whatsapp.com/DfCpQzQNth8ApleIJrL2cN" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        WhatsApp Us ↗
+                    </a>
+
+                    <a href="https://www.instagram.com/velocity.studios_108" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        Instagram ↗
+                    </a>
+                </div>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+                <input type="hidden" name="access_key" value="2d0c9e83-ccb6-4052-9167-597a8ea749c7">
+                <input type="hidden" name="subject" value="New Website Project Inquiry - Velocity Studios">
+                <input type="hidden" name="from_name" value="Velocity Studios Website">
+                <input type="hidden" name="replyto" value="%email%">
+
+                <div class="form-group">
+                    <input type="text" name="name" id="name" placeholder="Your name / business name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="message" id="message" rows="6" placeholder="Tell us about your business and what you need..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send Project Enquiry →</button>
+            </form>
+
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <h2>[Velocity<span class="accent"> Studios</span>]</h2>
+
+            <p>
+                Student-led web development team building professional digital solutions for businesses.
+            </p>
+
             <div class="social-links">
-                <!-- <a href="#">GitHub</a> -->
-                <a href="https://www.instagram.com/velocity.studios_108?igsh=OXNpcmFjbnJxYmQ4">Instagram</a>
-                <a href="https://chat.whatsapp.com/DfCpQzQNth8ApleIJrL2cN">Whatsapp channel</a>
+                <a href="https://www.instagram.com/velocity.studios_108" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://chat.whatsapp.com/DfCpQzQNth8ApleIJrL2cN" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
-            <p>&copy; 2026 Velocity studios. Built by students team who should be studying.</p>
+
+            <p>&copy; 2026 Velocity Studios. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

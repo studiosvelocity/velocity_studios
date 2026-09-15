@@ -5,87 +5,765 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Velocity Studios | Websites & Digital Solutions for Businesses</title>
-    <meta name="description" content="Velocity Studios is a student-led web development team building professional business websites, web applications and digital experiences.">
-    <meta name="keywords" content="web development, business website, website design, PHP, MySQL, JavaScript, Lucknow web developer, Velocity Studios">
+    <title>Velocity Studios | Web Development & Digital Solutions</title>
+
+    <meta name="description"
+        content="Velocity Studios is a student-led web development team building modern, responsive and affordable websites for businesses, startups and organizations.">
+
+    <meta name="keywords"
+        content="Velocity Studios, web development, website design, student web developers, business website, ecommerce website, Lucknow web development">
+
     <meta name="author" content="Velocity Studios">
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!--
+        ============================================================
+        VELOCITY STUDIOS
+        Student-Led Web Development & Digital Solutions
+        ============================================================
+    -->
+
+    <style>
+        /* =========================================================
+           WEBSITE PACKAGE SECTION
+           Self-contained CSS - no style.css changes required
+           ========================================================= */
+
+        .pricing-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-intro {
+            max-width: 760px;
+            margin-bottom: 45px;
+        }
+
+        .pricing-intro .section-lede {
+            max-width: 700px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 610px;
+            padding: 30px 24px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 18px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.055),
+                    rgba(255, 255, 255, 0.018)
+                );
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.20);
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.04),
+                transparent 45%
+            );
+            pointer-events: none;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.30);
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(255, 255, 255, 0.30);
+            transform: translateY(-8px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-14px);
+        }
+
+        .pricing-card.basic {
+            --package-accent: #46c76b;
+        }
+
+        .pricing-card.standard {
+            --package-accent: #3e9cff;
+        }
+
+        .pricing-card.premium {
+            --package-accent: #b85cff;
+        }
+
+        .pricing-card.ecommerce {
+            --package-accent: #ff6b28;
+        }
+
+        .package-top-line {
+            width: 55px;
+            height: 4px;
+            margin-bottom: 24px;
+            border-radius: 50px;
+            background: var(--package-accent);
+            box-shadow: 0 0 18px color-mix(
+                in srgb,
+                var(--package-accent),
+                transparent 45%
+            );
+        }
+
+        .package-label {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--package-accent);
+            margin-bottom: 8px;
+        }
+
+        .package-name {
+            font-size: 1.65rem;
+            line-height: 1.15;
+            margin: 0 0 7px;
+            font-weight: 700;
+        }
+
+        .package-target {
+            min-height: 42px;
+            margin: 0 0 22px;
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .package-price {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+        .package-price .currency {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--package-accent);
+        }
+
+        .package-price .amount {
+            font-size: 2.45rem;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .package-price-note {
+            margin: 0 0 25px;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.45);
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .package-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.09);
+            margin-bottom: 20px;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .package-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 13px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.87rem;
+            line-height: 1.4;
+        }
+
+        .package-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--package-accent);
+            font-weight: 800;
+        }
+
+        .package-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 46px;
+            margin-top: 24px;
+            border: 1px solid var(--package-accent);
+            border-radius: 10px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.025);
+            text-decoration: none;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.84rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .package-button:hover {
+            background: var(--package-accent);
+            color: #05070b;
+            transform: translateY(-2px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 10px;
+            border-radius: 30px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.61rem;
+            letter-spacing: 0.5px;
+            color: #fff;
+            background: var(--package-accent);
+        }
+
+        .pricing-note {
+            margin-top: 28px;
+            padding: 18px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.025);
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        .pricing-note strong {
+            color: rgba(255, 255, 255, 0.90);
+        }
+
+
+        /* =========================================================
+           WORK / PROJECT SECTION
+           ========================================================= */
+
+        .portfolio-header {
+            max-width: 780px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-mini-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .portfolio-mini-stat {
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .portfolio-mini-stat strong {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-mini-stat span {
+            font-size: 0.70rem;
+            color: rgba(255, 255, 255, 0.50);
+            font-family: "JetBrains Mono", monospace;
+            text-transform: uppercase;
+        }
+
+        .professional-projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .professional-project {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.025);
+            transition: all 0.35s ease;
+        }
+
+        .professional-project:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .professional-project-image {
+            position: relative;
+            height: 255px;
+            overflow: hidden;
+            background: #080b10;
+        }
+
+        .professional-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.45s ease;
+        }
+
+        .professional-project:hover
+        .professional-project-image img {
+            transform: scale(1.045);
+        }
+
+        .project-live-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 7px 11px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.70);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            color: #8fffa7;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.65rem;
+        }
+
+        .professional-project-body {
+            padding: 26px;
+        }
+
+        .project-number {
+            color: rgba(255, 255, 255, 0.35);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+            margin-bottom: 8px;
+        }
+
+        .project-category {
+            color: rgba(255, 255, 255, 0.48);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .professional-project-body h3 {
+            font-size: 1.45rem;
+            margin: 0 0 9px;
+        }
+
+        .project-tagline {
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        .professional-project-body .project-description {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.84rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .project-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
+            margin-bottom: 20px;
+        }
+
+        .project-feature {
+            padding: 11px;
+            border-radius: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.025);
+            font-size: 0.72rem;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.64);
+        }
+
+        .project-tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            padding: 5px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 5px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.62rem;
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .project-visit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 44px;
+            border-radius: 9px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .project-visit:hover {
+            background: #fff;
+            color: #05070b;
+        }
+
+        .portfolio-cta {
+            margin-top: 38px;
+            padding: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .portfolio-cta h3 {
+            margin: 0 0 5px;
+            font-size: 1.25rem;
+        }
+
+        .portfolio-cta p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.50);
+            font-size: 0.82rem;
+        }
+
+        .portfolio-cta-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================================
+           WHY CHOOSE US
+           ========================================================= */
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 35px;
+        }
+
+        .why-us-card {
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .why-us-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.06);
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .why-us-card h3 {
+            font-size: 1rem;
+            margin-bottom: 9px;
+        }
+
+        .why-us-card p {
+            color: rgba(255, 255, 255, 0.52);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 1050px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .professional-projects {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-mini-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-us-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card,
+            .pricing-card.featured {
+                min-height: auto;
+                transform: none;
+            }
+
+            .pricing-card:hover,
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+
+            .portfolio-mini-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .portfolio-cta-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .portfolio-cta-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .professional-project-image {
+                height: 210px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .portfolio-mini-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .package-price .amount {
+                font-size: 2.15rem;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
+    <!-- =========================================================
+         GRAIN / SCANLINE OVERLAY
+         ========================================================= -->
+
     <div class="grain-overlay"></div>
 
-    <!-- Navigation -->
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
     <nav id="navbar">
+
         <div class="nav-container">
+
             <a href="#hero" class="logo">
-                <span class="logo-bracket">[</span>Velocity <span class="accent">Studios</span><span class="logo-bracket">]</span>
+                <span class="logo-bracket">[</span>
+                Velocity <span class="accent">Studios</span>
+                <span class="logo-bracket">]</span>
             </a>
 
             <ul class="nav-links">
-                <li><a href="#hero"><span class="nav-idx">01</span>home</a></li>
-                <li><a href="#services"><span class="nav-idx">02</span>services</a></li>
-                <li><a href="#projects"><span class="nav-idx">03</span>work</a></li>
-                <li><a href="#process"><span class="nav-idx">04</span>process</a></li>
-                <li><a href="#team"><span class="nav-idx">05</span>team</a></li>
-                <li><a href="#contact"><span class="nav-idx">06</span>contact</a></li>
+
+                <li>
+                    <a href="#hero">
+                        <span class="nav-idx">index</span>home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        <span class="nav-idx">stack</span>services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#process">
+                        <span class="nav-idx">flow</span>process
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projects">
+                        <span class="nav-idx">repo</span>work
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#pricing">
+                        <span class="nav-idx">cost</span>packages
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#team">
+                        <span class="nav-idx">crew</span>team
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        <span class="nav-idx">ping</span>contact
+                    </a>
+                </li>
+
             </ul>
 
-            <div class="hamburger" aria-label="Open menu">
+            <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+
         </div>
+
     </nav>
 
-    <!-- Hero -->
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
     <section id="hero">
+
         <canvas id="circuit-canvas"></canvas>
+
         <div class="hero-vignette"></div>
 
         <div class="hero-content">
-            <p class="overline">// Websites built for business growth.</p>
+
+            <p class="overline">
+                // Get Online. Get Noticed. Get Results.
+            </p>
 
             <h1 class="headline">
                 We build websites<br>
-                that <span class="accent">grow businesses</span>.
+                that <span class="accent">work.</span>
             </h1>
 
             <p class="sub-headline">
-                Velocity Studios is a student-led digital team creating modern business websites,
-                web applications and digital experiences that help brands look professional,
-                build trust and turn visitors into customers.
+                We are a student-led web development team turning ideas,
+                businesses and organizations into modern digital experiences.
+                Professional websites, practical solutions and real-world builds —
+                created by students who are serious about technology.
             </p>
 
             <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">See Our Work</a>
-                <a href="#contact" class="btn btn-secondary">Start a Project →</a>
+
+                <a href="#pricing" class="btn btn-primary">
+                    View Packages
+                </a>
+
+                <a href="#projects" class="btn btn-secondary">
+                    View Our Work
+                </a>
+
             </div>
 
+
             <div class="terminal-window" aria-hidden="true">
+
                 <div class="terminal-bar">
+
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="terminal-title">velocity@studio:~</span>
+
+                    <span class="terminal-title">
+                        velocity@studio:~
+                    </span>
+
                 </div>
+
                 <div class="terminal-body" id="terminal-body"></div>
+
             </div>
+
         </div>
 
-        <div class="scroll-cue"><span></span>scroll</div>
+        <div class="scroll-cue">
+            <span></span>scroll
+        </div>
+
     </section>
 
-    <!-- Trust / Stats -->
+
+    <!-- =========================================================
+         STATS
+         ========================================================= -->
+
     <section class="stats-strip">
+
         <div class="container stats-grid">
+
             <div class="stat-block">
                 <span class="stat-num" data-target="6">0</span>
                 <span class="stat-label">Team Members</span>
@@ -93,1180 +771,1643 @@
 
             <div class="stat-block">
                 <span class="stat-num" data-target="4">0</span>
-                <span class="stat-label">Featured Builds</span>
+                <span class="stat-label">Live Projects</span>
             </div>
 
             <div class="stat-block">
-                <span class="stat-num" data-target="10">0</span>
-                <span class="stat-label">Tech Skills</span>
+                <span class="stat-num" data-target="4">0</span>
+                <span class="stat-label">Website Packages</span>
             </div>
 
             <div class="stat-block">
-                <span class="stat-num" data-target="1">0</span>
-                <span class="stat-label">Goal: Your Growth</span>
+                <span class="stat-num" data-target="100">0</span>
+                <span class="stat-label">Custom Builds</span>
             </div>
+
         </div>
+
     </section>
 
-    <!-- Services -->
+
+    <!-- =========================================================
+         SERVICES / SKILLS
+         ========================================================= -->
+
     <section id="services" class="section">
+
         <div class="container">
-            <p class="eyebrow">// services.build()</p>
-            <h2 class="section-title">Digital solutions for businesses</h2>
+
+            <p class="eyebrow">// services.list</p>
+
+            <h2 class="section-title">
+                What we build.
+            </h2>
+
             <p class="section-lede">
-                You don't need a complicated digital setup. You need a website that looks trustworthy,
-                works properly and makes it easy for customers to contact you.
+                Our focus is simple: build websites that look professional,
+                work smoothly and help businesses establish a stronger online presence.
             </p>
+
 
             <div class="skills-grid">
-                <div class="skill-category tilt-card">
-                    <h3>Business Websites</h3>
-                    <p>Professional, responsive websites for local businesses, services, institutes, restaurants and growing brands.</p>
-                    <div class="tags">
-                        <span class="tag">Responsive</span>
-                        <span class="tag">Modern UI</span>
-                        <span class="tag">SEO Basics</span>
-                    </div>
-                </div>
 
                 <div class="skill-category tilt-card">
-                    <h3>Web Applications</h3>
-                    <p>Custom systems with forms, dashboards, databases, authentication and business-specific functionality.</p>
+
+                    <h3>
+                        Website Development
+                    </h3>
+
                     <div class="tags">
+
+                        <span class="tag">Business Websites</span>
+                        <span class="tag">Landing Pages</span>
+                        <span class="tag">Portfolio Websites</span>
+                        <span class="tag">Educational Websites</span>
+                        <span class="tag">Restaurant Websites</span>
+                        <span class="tag">Service Websites</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category tilt-card">
+
+                    <h3>
+                        Technology Stack
+                    </h3>
+
+                    <div class="tags">
+
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
                         <span class="tag">PHP</span>
                         <span class="tag">MySQL</span>
-                        <span class="tag">JavaScript</span>
+                        <span class="tag">Python</span>
+
                     </div>
+
                 </div>
 
-                <div class="skill-category tilt-card">
-                    <h3>UI / UX & Branding</h3>
-                    <p>Clean interfaces and digital visuals designed to make your business look credible and memorable.</p>
-                    <div class="tags">
-                        <span class="tag">UI/UX</span>
-                        <span class="tag">Branding</span>
-                        <span class="tag">Visual Design</span>
-                    </div>
-                </div>
-
-                <div class="skill-category tilt-card">
-                    <h3>Support & Improvements</h3>
-                    <p>Website updates, fixes, content changes and ongoing improvements after your website goes live.</p>
-                    <div class="tags">
-                        <span class="tag">Maintenance</span>
-                        <span class="tag">Testing</span>
-                        <span class="tag">Support</span>
-                    </div>
-                </div>
             </div>
+
+
+            <!-- WHY CHOOSE US -->
+
+            <div class="why-us-grid">
+
+                <div class="why-us-card">
+
+                    <div class="why-us-icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Modern & Responsive
+                    </h3>
+
+                    <p>
+                        Websites designed to work across phones,
+                        tablets, laptops and desktop screens.
+                    </p>
+
+                </div>
+
+
+                <div class="why-us-card">
+
+                    <div class="why-us-icon">
+                        02
+                    </div>
+
+                    <h3>
+                        Affordable Packages
+                    </h3>
+
+                    <p>
+                        Practical website packages designed for
+                        startups, small businesses and growing organizations.
+                    </p>
+
+                </div>
+
+
+                <div class="why-us-card">
+
+                    <div class="why-us-icon">
+                        03
+                    </div>
+
+                    <h3>
+                        Direct Communication
+                    </h3>
+
+                    <p>
+                        Work directly with our team throughout the project
+                        instead of getting lost in layers of communication.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
 
-    <!-- Why Us -->
-    <section class="section bg-darker">
-        <div class="container">
-            <p class="eyebrow">// why.velocity</p>
-            <h2 class="section-title">Why businesses choose us</h2>
 
-            <div class="process-rail">
-                <div class="process-step tilt-card">
-                    <span class="step-index">01</span>
-                    <h3>Business-first</h3>
-                    <p>We focus on what your customers need to see, understand and do—not just on writing code.</p>
-                </div>
+    <!-- =========================================================
+         PROCESS
+         ========================================================= -->
 
-                <div class="process-step tilt-card">
-                    <span class="step-index">02</span>
-                    <h3>Modern & responsive</h3>
-                    <p>Your website is designed to work across phones, tablets and desktops with a professional look.</p>
-                </div>
-
-                <div class="process-step tilt-card">
-                    <span class="step-index">03</span>
-                    <h3>Direct communication</h3>
-                    <p>You work directly with our team, so requirements, revisions and project decisions stay clear.</p>
-                </div>
-
-                <div class="process-step tilt-card">
-                    <span class="step-index">04</span>
-                    <h3>Affordable development</h3>
-                    <p>As a young student-led team, we keep our process lean and offer practical solutions for growing businesses.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<!-- =========================
-     FEATURED WORK / PORTFOLIO
-     ========================= -->
-<section id="projects" class="section">
-    <div class="container">
-
-        <p class="eyebrow">// portfolio.showcase</p>
-
-        <h2 class="section-title">Work that speaks for us.</h2>
-
-        <p class="section-lede">
-            From business websites to custom digital platforms, we build experiences
-            designed to make businesses look professional, build trust and connect
-            with their customers.
-        </p>
-
-        <!-- Portfolio intro stats -->
-        <div class="portfolio-mini-stats">
-            <div>
-                <strong>04+</strong>
-                <span>Featured Projects</span>
-            </div>
-
-            <div>
-                <strong>06</strong>
-                <span>Team Members</span>
-            </div>
-
-            <div>
-                <strong>100%</strong>
-                <span>Custom Builds</span>
-            </div>
-
-            <div>
-                <strong>24/7</strong>
-                <span>Digital Presence</span>
-            </div>
-        </div>
-
-
-        <!-- =========================
-             PROJECT 01
-             ========================= -->
-        <article class="portfolio-project tilt-card-strong">
-
-            <div class="portfolio-project-image">
-                <img
-                    src="krishna.jpg"
-                    alt="KLM and Aditya Foundation website preview"
-                    loading="lazy"
-                >
-
-                <div class="project-number">01</div>
-
-                <div class="project-status">
-                    <span class="status-dot"></span>
-                    LIVE PROJECT
-                </div>
-            </div>
-
-
-            <div class="portfolio-project-content">
-
-                <div class="project-category">
-                    EDUCATION • NON-PROFIT
-                </div>
-
-                <h3>KLM &amp; Aditya Foundation</h3>
-
-                <p class="project-tagline">
-                    A complete digital presence for an educational organization.
-                </p>
-
-                <p class="description">
-                    We developed a professional web platform for Kishan Lal Memorial
-                    Educational Organization &amp; Aditya Foundation, bringing
-                    organizational information, certificate verification, galleries
-                    and updates into one accessible online experience.
-                </p>
-
-
-                <div class="project-feature-grid">
-
-                    <div>
-                        <span class="feature-icon">01</span>
-                        <strong>Verification</strong>
-                        <small>Certificate verification system</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">02</span>
-                        <strong>Content</strong>
-                        <small>Dynamic gallery &amp; updates</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">03</span>
-                        <strong>Responsive</strong>
-                        <small>Mobile-friendly interface</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">04</span>
-                        <strong>Management</strong>
-                        <small>Contact &amp; branch information</small>
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <div class="project-tech">
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <a
-                        href="https://klmsadityafoundation.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-live"
-                    >
-                        View Live Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-        </article>
-
-
-
-        <!-- =========================
-             PROJECT 02
-             ========================= -->
-        <article class="portfolio-project portfolio-project-reverse tilt-card-strong">
-
-            <div class="portfolio-project-image">
-                <img
-                    src="Dci_logo.jpg"
-                    alt="Dream Computer Institute website preview"
-                    loading="lazy"
-                >
-
-                <div class="project-number">02</div>
-
-                <div class="project-status">
-                    <span class="status-dot"></span>
-                    LIVE PROJECT
-                </div>
-            </div>
-
-
-            <div class="portfolio-project-content">
-
-                <div class="project-category">
-                    EDUCATION • INSTITUTE
-                </div>
-
-                <h3>Dream Computer Institute</h3>
-
-                <p class="project-tagline">
-                    Turning an institute into a complete digital experience.
-                </p>
-
-                <p class="description">
-                    A professional institute website designed to showcase courses,
-                    simplify student information access and provide useful online
-                    services such as registration and certificate verification.
-                </p>
-
-
-                <div class="project-feature-grid">
-
-                    <div>
-                        <span class="feature-icon">01</span>
-                        <strong>Courses</strong>
-                        <small>Computer course catalogue</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">02</span>
-                        <strong>Admissions</strong>
-                        <small>Online admission / registration</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">03</span>
-                        <strong>Verification</strong>
-                        <small>Student &amp; certificate verification</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">04</span>
-                        <strong>Updates</strong>
-                        <small>Notice board &amp; photo gallery</small>
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <div class="project-tech">
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <a
-                        href="https://klmsadityafoundation.com/goodweb/index.php"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-live"
-                    >
-                        View Live Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-        </article>
-
-
-
-        <!-- =========================
-             PROJECT 03
-             ========================= -->
-        <article class="portfolio-project tilt-card-strong">
-
-            <div class="portfolio-project-image">
-                <img
-                    src="pk.jpg"
-                    alt="PK Painting Services website preview"
-                    loading="lazy"
-                >
-
-                <div class="project-number">03</div>
-
-                <div class="project-status">
-                    <span class="status-dot"></span>
-                    LIVE PROJECT
-                </div>
-            </div>
-
-
-            <div class="portfolio-project-content">
-
-                <div class="project-category">
-                    HOME SERVICES • BUSINESS
-                </div>
-
-                <h3>PK Painting Services</h3>
-
-                <p class="project-tagline">
-                    A service website designed to turn visitors into enquiries.
-                </p>
-
-                <p class="description">
-                    A modern service-focused website created for residential and
-                    commercial painting services, with interactive tools and
-                    project showcases that help customers understand the service
-                    before making an enquiry.
-                </p>
-
-
-                <div class="project-feature-grid">
-
-                    <div>
-                        <span class="feature-icon">01</span>
-                        <strong>Estimator</strong>
-                        <small>Interactive painting cost estimator</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">02</span>
-                        <strong>Portfolio</strong>
-                        <small>Before / after project showcase</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">03</span>
-                        <strong>Enquiry</strong>
-                        <small>Quick customer enquiry flow</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">04</span>
-                        <strong>Responsive</strong>
-                        <small>Optimized for mobile users</small>
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <div class="project-tech">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <a
-                        href="https://projectsthings1-dev.github.io/PK_Painting/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-live"
-                    >
-                        View Live Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-        </article>
-
-
-
-        <!-- =========================
-             PROJECT 04
-             ========================= -->
-        <article class="portfolio-project portfolio-project-reverse tilt-card-strong">
-
-            <div class="portfolio-project-image">
-                <img
-                    src="TRF2.png"
-                    alt="The Rustic Fork restaurant website preview"
-                    loading="lazy"
-                >
-
-                <div class="project-number">04</div>
-
-                <div class="project-status">
-                    <span class="status-dot"></span>
-                    LIVE PROJECT
-                </div>
-            </div>
-
-
-            <div class="portfolio-project-content">
-
-                <div class="project-category">
-                    RESTAURANT • HOSPITALITY
-                </div>
-
-                <h3>The Rustic Fork</h3>
-
-                <p class="project-tagline">
-                    A digital dining experience built around the brand.
-                </p>
-
-                <p class="description">
-                    A visually focused restaurant website designed to showcase
-                    the restaurant's atmosphere, menu, events and booking journey
-                    across desktop and mobile devices.
-                </p>
-
-
-                <div class="project-feature-grid">
-
-                    <div>
-                        <span class="feature-icon">01</span>
-                        <strong>Menu</strong>
-                        <small>Interactive menu presentation</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">02</span>
-                        <strong>Events</strong>
-                        <small>Event scheduling &amp; display</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">03</span>
-                        <strong>Bookings</strong>
-                        <small>Customer booking experience</small>
-                    </div>
-
-                    <div>
-                        <span class="feature-icon">04</span>
-                        <strong>Design</strong>
-                        <small>Responsive restaurant UI</small>
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <a
-                        href="https://projectsthings1-dev.github.io/The_Rustic_Fork/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-live"
-                    >
-                        View Live Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-        </article>
-
-
-        <!-- =========================
-             PORTFOLIO CTA
-             ========================= -->
-        <div class="portfolio-cta">
-
-            <p class="eyebrow">// your.business.next</p>
-
-            <h3>
-                Like what you see?
-                <span class="accent">Let's build yours.</span>
-            </h3>
-
-            <p>
-                Whether you need a simple business website or a custom web application,
-                tell us what you're trying to achieve and we'll help you plan the right solution.
-            </p>
-
-            <div class="cta-group">
-                <a href="#contact" class="btn btn-primary">
-                    Start Your Project →
-                </a>
-
-                <a href="#services" class="btn btn-secondary">
-                    Explore Services
-                </a>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =========================
-     WORK SECTION STYLES
-     Add these styles to style.css
-     ========================= -->
-<style>
-
-    .portfolio-mini-stats {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        margin: 45px 0 70px;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.06);
-    }
-
-    .portfolio-mini-stats > div {
-        padding: 24px;
-        background: rgba(10,10,10,0.8);
-    }
-
-    .portfolio-mini-stats strong {
-        display: block;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 2rem;
-        margin-bottom: 5px;
-    }
-
-    .portfolio-mini-stats span {
-        display: block;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.7rem;
-        opacity: 0.6;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-
-
-    .portfolio-project {
-        display: grid;
-        grid-template-columns: 1.05fr 1fr;
-        margin-bottom: 55px;
-        overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.025);
-    }
-
-    .portfolio-project-reverse {
-        grid-template-columns: 1fr 1.05fr;
-    }
-
-    .portfolio-project-reverse .portfolio-project-image {
-        order: 2;
-    }
-
-    .portfolio-project-reverse .portfolio-project-content {
-        order: 1;
-    }
-
-
-    .portfolio-project-image {
-        min-height: 480px;
-        position: relative;
-        overflow: hidden;
-        background: #090909;
-    }
-
-    .portfolio-project-image img {
-        width: 100%;
-        height: 100%;
-        min-height: 480px;
-        display: block;
-        object-fit: cover;
-        object-position: top center;
-        transition: transform 0.6s ease;
-    }
-
-    .portfolio-project:hover .portfolio-project-image img {
-        transform: scale(1.04);
-    }
-
-
-    .project-number {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        padding: 8px 12px;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.75rem;
-        background: rgba(0,0,0,0.8);
-        border: 1px solid rgba(255,255,255,0.12);
-        backdrop-filter: blur(8px);
-    }
-
-    .project-status {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        padding: 8px 12px;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.08em;
-        background: rgba(0,0,0,0.8);
-        border: 1px solid rgba(255,255,255,0.12);
-        backdrop-filter: blur(8px);
-    }
-
-    .status-dot {
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        margin-right: 7px;
-        background: currentColor;
-    }
-
-
-    .portfolio-project-content {
-        padding: 48px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .project-category {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-        opacity: 0.55;
-        margin-bottom: 15px;
-    }
-
-    .portfolio-project-content h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(2rem, 4vw, 3.2rem);
-        line-height: 1;
-        margin: 0 0 12px;
-    }
-
-    .project-tagline {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 20px;
-        opacity: 0.9;
-    }
-
-    .portfolio-project-content .description {
-        line-height: 1.8;
-        opacity: 0.65;
-        margin-bottom: 30px;
-    }
-
-
-    .project-feature-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        margin-bottom: 30px;
-        border: 1px solid rgba(255,255,255,0.07);
-        background: rgba(255,255,255,0.07);
-    }
-
-    .project-feature-grid > div {
-        padding: 17px;
-        background: rgba(10,10,10,0.9);
-    }
-
-    .feature-icon {
-        display: block;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.6rem;
-        opacity: 0.4;
-        margin-bottom: 8px;
-    }
-
-    .project-feature-grid strong {
-        display: block;
-        font-size: 0.85rem;
-        margin-bottom: 4px;
-    }
-
-    .project-feature-grid small {
-        display: block;
-        font-size: 0.72rem;
-        opacity: 0.5;
-        line-height: 1.5;
-    }
-
-
-    .project-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 7px;
-    }
-
-    .project-tech span {
-        padding: 6px 9px;
-        border: 1px solid rgba(255,255,255,0.1);
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.62rem;
-        opacity: 0.7;
-    }
-
-
-    .portfolio-cta {
-        text-align: center;
-        max-width: 800px;
-        margin: 90px auto 10px;
-        padding: 65px 30px;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.025);
-    }
-
-    .portfolio-cta h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(2rem, 5vw, 3.4rem);
-        line-height: 1.05;
-        margin: 12px 0 18px;
-    }
-
-    .portfolio-cta > p:not(.eyebrow) {
-        max-width: 620px;
-        margin: 0 auto 30px;
-        line-height: 1.8;
-        opacity: 0.6;
-    }
-
-    .portfolio-cta .cta-group {
-        justify-content: center;
-    }
-
-
-    /* Tablet */
-    @media (max-width: 900px) {
-
-        .portfolio-mini-stats {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .portfolio-project,
-        .portfolio-project-reverse {
-            grid-template-columns: 1fr;
-        }
-
-        .portfolio-project-reverse .portfolio-project-image {
-            order: 1;
-        }
-
-        .portfolio-project-reverse .portfolio-project-content {
-            order: 2;
-        }
-
-        .portfolio-project-image,
-        .portfolio-project-image img {
-            min-height: 380px;
-        }
-
-        .portfolio-project-content {
-            padding: 35px;
-        }
-    }
-
-
-    /* Mobile */
-    @media (max-width: 600px) {
-
-        .portfolio-mini-stats {
-            grid-template-columns: 1fr 1fr;
-            margin: 30px 0 45px;
-        }
-
-        .portfolio-mini-stats > div {
-            padding: 18px 15px;
-        }
-
-        .portfolio-mini-stats strong {
-            font-size: 1.5rem;
-        }
-
-        .portfolio-mini-stats span {
-            font-size: 0.58rem;
-        }
-
-        .portfolio-project {
-            margin-bottom: 35px;
-        }
-
-        .portfolio-project-image,
-        .portfolio-project-image img {
-            min-height: 250px;
-        }
-
-        .portfolio-project-content {
-            padding: 27px 22px;
-        }
-
-        .portfolio-project-content h3 {
-            font-size: 2rem;
-        }
-
-        .project-feature-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .project-bottom {
-            align-items: stretch;
-        }
-
-        .project-tech {
-            width: 100%;
-        }
-
-        .project-bottom .btn-live {
-            width: 100%;
-            text-align: center;
-        }
-
-        .portfolio-cta {
-            margin-top: 55px;
-            padding: 45px 20px;
-        }
-    }
-
-</style>
-
-
-    <!-- Process -->
     <section id="process" class="section bg-darker">
+
         <div class="container">
-            <p class="eyebrow">// project.flow</p>
-            <h2 class="section-title">A simple process. No confusion.</h2>
+
+            <p class="eyebrow">// build.flow</p>
+
+            <h2 class="section-title">
+                How we build.
+            </h2>
+
             <p class="section-lede">
-                From your first message to launch, we keep the project clear and structured.
+                A simple and transparent process from the first conversation
+                to the final website handover.
             </p>
+
 
             <div class="process-rail">
+
                 <div class="process-step tilt-card">
+
                     <span class="step-index">01</span>
-                    <h3>Discover</h3>
-                    <p>We understand your business, audience, goals, required pages and functionality.</p>
+
+                    <h3>
+                        Understand
+                    </h3>
+
+                    <p>
+                        We understand your business, audience,
+                        requirements and goals before development begins.
+                    </p>
+
                 </div>
 
+
                 <div class="process-step tilt-card">
+
                     <span class="step-index">02</span>
-                    <h3>Design</h3>
-                    <p>We plan the layout, content structure and visual direction before development.</p>
+
+                    <h3>
+                        Plan
+                    </h3>
+
+                    <p>
+                        We plan the website structure, pages,
+                        features, content and overall visual direction.
+                    </p>
+
                 </div>
 
+
                 <div class="process-step tilt-card">
+
                     <span class="step-index">03</span>
-                    <h3>Develop</h3>
-                    <p>Our developers build the website and implement the required functionality.</p>
+
+                    <h3>
+                        Build
+                    </h3>
+
+                    <p>
+                        Our developers turn the approved plan into
+                        a responsive and functional website.
+                    </p>
+
                 </div>
 
+
                 <div class="process-step tilt-card">
+
                     <span class="step-index">04</span>
-                    <h3>Test & launch</h3>
-                    <p>We test the important flows, fix issues and prepare the website for launch.</p>
+
+                    <h3>
+                        Test & Launch
+                    </h3>
+
+                    <p>
+                        We test the website, collect your feedback,
+                        complete revisions and prepare the final launch.
+                    </p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <!-- Team -->
-    <section id="team" class="section">
+
+    <!-- =========================================================
+         PROJECTS / VIEW OUR WORK
+         ========================================================= -->
+
+    <section id="projects" class="section">
+
         <div class="container">
-            <p class="eyebrow">// team.velocity</p>
-            <h2 class="section-title">Meet the team</h2>
-            <p class="section-lede">
-                A six-person student-led team covering development, design, client communication, operations and quality.
+
+            <div class="portfolio-header">
+
+                <p class="eyebrow">// portfolio.showcase</p>
+
+                <h2 class="section-title">
+                    Work that speaks for us.
+                </h2>
+
+                <p class="section-lede">
+                    Real websites we've designed and developed for
+                    educational organizations, service businesses and hospitality.
+                </p>
+
+            </div>
+
+
+            <div class="portfolio-mini-stats">
+
+                <div class="portfolio-mini-stat">
+                    <strong>04+</strong>
+                    <span>Featured Projects</span>
+                </div>
+
+                <div class="portfolio-mini-stat">
+                    <strong>06</strong>
+                    <span>Team Members</span>
+                </div>
+
+                <div class="portfolio-mini-stat">
+                    <strong>100%</strong>
+                    <span>Custom Builds</span>
+                </div>
+
+                <div class="portfolio-mini-stat">
+                    <strong>Live</strong>
+                    <span>Client Projects</span>
+                </div>
+
+            </div>
+
+
+            <div class="professional-projects">
+
+
+                <!-- PROJECT 01 -->
+
+                <article class="professional-project">
+
+                    <div class="professional-project-image">
+
+                        <img
+                            src="krishna.jpg"
+                            alt="KLM and Aditya Foundation Website"
+                            loading="lazy">
+
+                        <span class="project-live-badge">
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div class="professional-project-body">
+
+                        <div class="project-number">
+                            PROJECT / 001
+                        </div>
+
+                        <div class="project-category">
+                            EDUCATION • NON-PROFIT
+                        </div>
+
+                        <h3>
+                            KLM & Aditya Foundation
+                        </h3>
+
+                        <p class="project-tagline">
+                            A digital presence built for education and community impact.
+                        </p>
+
+                        <p class="project-description">
+                            A professional web portal for Kishan Lal Memorial
+                            Educational Organization & Aditya Foundation,
+                            designed to present their services, activities,
+                            verification systems and organizational information.
+                        </p>
+
+
+                        <div class="project-feature-grid">
+
+                            <div class="project-feature">
+                                Certificate verification system
+                            </div>
+
+                            <div class="project-feature">
+                                Dynamic photo gallery
+                            </div>
+
+                            <div class="project-feature">
+                                Organization updates
+                            </div>
+
+                            <div class="project-feature">
+                                Responsive design
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-tech-row">
+
+                            <span class="project-tech">
+                                PHP
+                            </span>
+
+                            <span class="project-tech">
+                                MySQL
+                            </span>
+
+                            <span class="project-tech">
+                                HTML
+                            </span>
+
+                            <span class="project-tech">
+                                CSS
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="https://klmsadityafoundation.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-visit">
+
+                            Visit Live Website ↗
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 02 -->
+
+                <article class="professional-project">
+
+                    <div class="professional-project-image">
+
+                        <img
+                            src="Dci_logo.jpg"
+                            alt="Dream Computer Institute Website"
+                            loading="lazy">
+
+                        <span class="project-live-badge">
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div class="professional-project-body">
+
+                        <div class="project-number">
+                            PROJECT / 002
+                        </div>
+
+                        <div class="project-category">
+                            EDUCATION • INSTITUTE
+                        </div>
+
+                        <h3>
+                            Dream Computer Institute
+                        </h3>
+
+                        <p class="project-tagline">
+                            Making an educational institute easier to discover online.
+                        </p>
+
+                        <p class="project-description">
+                            A web portal for Dream Computer Institute featuring
+                            course information, student-related services,
+                            certificate verification, notices and institute updates.
+                        </p>
+
+
+                        <div class="project-feature-grid">
+
+                            <div class="project-feature">
+                                Student verification
+                            </div>
+
+                            <div class="project-feature">
+                                Certificate verification
+                            </div>
+
+                            <div class="project-feature">
+                                Course catalog
+                            </div>
+
+                            <div class="project-feature">
+                                Notice & gallery system
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-tech-row">
+
+                            <span class="project-tech">
+                                PHP
+                            </span>
+
+                            <span class="project-tech">
+                                MySQL
+                            </span>
+
+                            <span class="project-tech">
+                                JavaScript
+                            </span>
+
+                            <span class="project-tech">
+                                CSS
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="https://klmsadityafoundation.com/goodweb/index.php"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-visit">
+
+                            Visit Live Website ↗
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 03 -->
+
+                <article class="professional-project">
+
+                    <div class="professional-project-image">
+
+                        <img
+                            src="pk.jpg"
+                            alt="PK Painting Services Website"
+                            loading="lazy">
+
+                        <span class="project-live-badge">
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div class="professional-project-body">
+
+                        <div class="project-number">
+                            PROJECT / 003
+                        </div>
+
+                        <div class="project-category">
+                            HOME SERVICES • BUSINESS
+                        </div>
+
+                        <h3>
+                            PK Painting Services
+                        </h3>
+
+                        <p class="project-tagline">
+                            A service website designed to turn visitors into customers.
+                        </p>
+
+                        <p class="project-description">
+                            A modern website for residential and commercial
+                            painting services, designed around service discovery,
+                            project showcases, quick estimates and customer contact.
+                        </p>
+
+
+                        <div class="project-feature-grid">
+
+                            <div class="project-feature">
+                                Paint cost estimator
+                            </div>
+
+                            <div class="project-feature">
+                                Before & after gallery
+                            </div>
+
+                            <div class="project-feature">
+                                Service showcase
+                            </div>
+
+                            <div class="project-feature">
+                                Direct booking/contact
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-tech-row">
+
+                            <span class="project-tech">
+                                HTML5
+                            </span>
+
+                            <span class="project-tech">
+                                CSS3
+                            </span>
+
+                            <span class="project-tech">
+                                JavaScript
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="https://projectsthings1-dev.github.io/PK_Painting/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-visit">
+
+                            Visit Live Website ↗
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 04 -->
+
+                <article class="professional-project">
+
+                    <div class="professional-project-image">
+
+                        <img
+                            src="TRF2.png"
+                            alt="The Rustic Fork Restaurant Website"
+                            loading="lazy">
+
+                        <span class="project-live-badge">
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div class="professional-project-body">
+
+                        <div class="project-number">
+                            PROJECT / 004
+                        </div>
+
+                        <div class="project-category">
+                            RESTAURANT • HOSPITALITY
+                        </div>
+
+                        <h3>
+                            The Rustic Fork
+                        </h3>
+
+                        <p class="project-tagline">
+                            A restaurant experience designed for the digital world.
+                        </p>
+
+                        <p class="project-description">
+                            A visually focused restaurant website featuring
+                            an interactive menu showcase, event information,
+                            booking-focused sections and a responsive rustic-inspired interface.
+                        </p>
+
+
+                        <div class="project-feature-grid">
+
+                            <div class="project-feature">
+                                Interactive menu showcase
+                            </div>
+
+                            <div class="project-feature">
+                                Event information
+                            </div>
+
+                            <div class="project-feature">
+                                Booking-focused interface
+                            </div>
+
+                            <div class="project-feature">
+                                Responsive restaurant UI
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-tech-row">
+
+                            <span class="project-tech">
+                                HTML
+                            </span>
+
+                            <span class="project-tech">
+                                CSS
+                            </span>
+
+                            <span class="project-tech">
+                                JavaScript
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="https://projectsthings1-dev.github.io/The_Rustic_Fork/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-visit">
+
+                            Visit Live Website ↗
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="portfolio-cta">
+
+                <div>
+
+                    <h3>
+                        Like what you see?
+                    </h3>
+
+                    <p>
+                        Let's build a website that represents your business.
+                    </p>
+
+                </div>
+
+
+                <div class="portfolio-cta-actions">
+
+                    <a
+                        href="#pricing"
+                        class="btn btn-primary">
+
+                        See Packages
+
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="btn btn-secondary">
+
+                        Start a Project
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         WEBSITE PACKAGES
+         ========================================================= -->
+
+    <section id="pricing" class="section bg-darker pricing-section">
+
+        <div class="container">
+
+            <div class="pricing-intro">
+
+                <p class="eyebrow">
+                    // pricing.plans
+                </p>
+
+                <h2 class="section-title">
+                    Website packages built for every stage.
+                </h2>
+
+                <p class="section-lede">
+                    From a simple business presence to a complete online store,
+                    choose the package that fits your current needs.
+                </p>
+
+            </div>
+
+
+            <div class="pricing-grid">
+
+
+                <!-- BASIC -->
+
+                <article class="pricing-card basic">
+
+                    <div class="package-top-line"></div>
+
+                    <div class="package-label">
+                        PACKAGE / 01
+                    </div>
+
+                    <h3 class="package-name">
+                        Basic Website
+                    </h3>
+
+                    <p class="package-target">
+                        Best for new startups and simple business presence.
+                    </p>
+
+                    <div class="package-price">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <span class="amount">
+                            3,999
+                        </span>
+
+                    </div>
+
+                    <p class="package-price-note">
+                        STARTING PRICE
+                    </p>
+
+                    <div class="package-divider"></div>
+
+
+                    <ul class="package-features">
+
+                        <li>
+                            1–2 Pages Website
+                        </li>
+
+                        <li>
+                            Mobile Responsive Design
+                        </li>
+
+                        <li>
+                            WhatsApp Integration
+                        </li>
+
+                        <li>
+                            Contact Form
+                        </li>
+
+                        <li>
+                            Basic Social Media Links
+                        </li>
+
+                        <li>
+                            3-Day Delivery
+                        </li>
+
+                        <li>
+                            7 Days Technical Support
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#contact" class="package-button">
+                        START YOUR WEBSITE →
+                    </a>
+
+                </article>
+
+
+                <!-- STANDARD -->
+
+                <article class="pricing-card standard featured">
+
+                    <span class="package-badge">
+                        POPULAR
+                    </span>
+
+                    <div class="package-top-line"></div>
+
+                    <div class="package-label">
+                        PACKAGE / 02
+                    </div>
+
+                    <h3 class="package-name">
+                        Standard Website
+                    </h3>
+
+                    <p class="package-target">
+                        Best for growing small businesses.
+                    </p>
+
+                    <div class="package-price">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <span class="amount">
+                            7,999
+                        </span>
+
+                    </div>
+
+                    <p class="package-price-note">
+                        STARTING PRICE
+                    </p>
+
+                    <div class="package-divider"></div>
+
+
+                    <ul class="package-features">
+
+                        <li>
+                            5–8 Pages Website
+                        </li>
+
+                        <li>
+                            Premium Custom Design
+                        </li>
+
+                        <li>
+                            Image Gallery
+                        </li>
+
+                        <li>
+                            Basic SEO Setup
+                        </li>
+
+                        <li>
+                            WhatsApp Chat Integration
+                        </li>
+
+                        <li>
+                            Google Maps Integration
+                        </li>
+
+                        <li>
+                            14 Days Technical Support
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#contact" class="package-button">
+                        GROW YOUR BUSINESS →
+                    </a>
+
+                </article>
+
+
+                <!-- PREMIUM -->
+
+                <article class="pricing-card premium">
+
+                    <div class="package-top-line"></div>
+
+                    <div class="package-label">
+                        PACKAGE / 03
+                    </div>
+
+                    <h3 class="package-name">
+                        Premium Website
+                    </h3>
+
+                    <p class="package-target">
+                        Best for established businesses and organizations.
+                    </p>
+
+                    <div class="package-price">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <span class="amount">
+                            12,999
+                        </span>
+
+                    </div>
+
+                    <p class="package-price-note">
+                        STARTING PRICE
+                    </p>
+
+                    <div class="package-divider"></div>
+
+
+                    <ul class="package-features">
+
+                        <li>
+                            8+ Pages Website
+                        </li>
+
+                        <li>
+                            Luxury Custom Design
+                        </li>
+
+                        <li>
+                            Smooth UI Animations
+                        </li>
+
+                        <li>
+                            Advanced SEO Setup
+                        </li>
+
+                        <li>
+                            Speed Optimization
+                        </li>
+
+                        <li>
+                            Extended WhatsApp Support
+                        </li>
+
+                        <li>
+                            Advanced Google Maps
+                        </li>
+
+                        <li>
+                            30 Days Technical Support
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#contact" class="package-button">
+                        GO PREMIUM →
+                    </a>
+
+                </article>
+
+
+                <!-- E-COMMERCE -->
+
+                <article class="pricing-card ecommerce">
+
+                    <div class="package-top-line"></div>
+
+                    <div class="package-label">
+                        PACKAGE / 04
+                    </div>
+
+                    <h3 class="package-name">
+                        E-Commerce Website
+                    </h3>
+
+                    <p class="package-target">
+                        Best for businesses ready to sell online.
+                    </p>
+
+                    <div class="package-price">
+
+                        <span class="currency">
+                            ₹
+                        </span>
+
+                        <span class="amount">
+                            18,999
+                        </span>
+
+                    </div>
+
+                    <p class="package-price-note">
+                        STARTING PRICE
+                    </p>
+
+                    <div class="package-divider"></div>
+
+
+                    <ul class="package-features">
+
+                        <li>
+                            Complete Online Store
+                        </li>
+
+                        <li>
+                            Product Management
+                        </li>
+
+                        <li>
+                            Add to Cart & Checkout
+                        </li>
+
+                        <li>
+                            Payment Gateway Integration
+                        </li>
+
+                        <li>
+                            Admin Panel
+                        </li>
+
+                        <li>
+                            Order Management
+                        </li>
+
+                        <li>
+                            Product Categories
+                        </li>
+
+                        <li>
+                            Customer Account Login
+                        </li>
+
+                        <li>
+                            Discount / Coupon System
+                        </li>
+
+                        <li>
+                            3 Months Technical Support
+                        </li>
+
+                    </ul>
+
+
+                    <a href="#contact" class="package-button">
+                        START SELLING ONLINE →
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <div class="pricing-note">
+
+                <strong>Important:</strong>
+                All packages are starting prices.
+                Final pricing may change depending on the number of pages,
+                advanced functionality, custom systems, domain, hosting,
+                payment gateways and other project requirements.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TEAM
+         ========================================================= -->
+
+    <section id="team" class="section">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                // crew.json
             </p>
+
+            <h2 class="section-title">
+                The team behind Velocity.
+            </h2>
+
+            <p class="section-lede">
+                We are students, developers, designers and problem-solvers
+                working together to turn ideas into real digital products.
+            </p>
+
 
             <div class="team-grid">
 
-                <div class="team-card tilt-card-strong">
-                    <img src="hemant.jpeg" alt="Hemant Bajpai" class="avatar">
-                    <h3>Hemant Bajpai</h3>
-                    <p class="role">Founder & Lead Developer</p>
-                    <p class="bio">
-                        Leads the agency, technical direction, development and final project decisions.
-                        Keeps the team focused on delivering useful business solutions.
-                    </p>
-                    <div class="chip-row">
-                        <span class="chip">Leadership</span>
-                        <span class="chip">Development</span>
-                        <span class="chip">Strategy</span>
-                    </div>
-                </div>
+
+                <!-- HEMANT -->
 
                 <div class="team-card tilt-card-strong">
-                    <img src="Adi.jpeg" alt="Aditya Singh Chauhan" class="avatar">
-                    <h3>Aditya Singh Chauhan</h3>
-                    <p class="role">Database & UI Designer</p>
-                    <p class="bio">
-                        Works on database structure and interface decisions to keep projects organized,
-                        responsive and easy to use.
+
+                    <img
+                        src="hemant.jpeg"
+                        alt="Hemant Bajpai"
+                        class="avatar">
+
+                    <h3>
+                        Hemant Bajpai
+                    </h3>
+
+                    <p class="role">
+                        Founder & Lead Developer
                     </p>
+
+                    <p class="bio">
+                        Leads the team, development direction and technical
+                        execution while turning client requirements into practical
+                        digital solutions.
+                    </p>
+
                     <div class="chip-row">
-                        <span class="chip">MySQL</span>
-                        <span class="chip">UI/UX</span>
-                        <span class="chip">JavaScript</span>
+
+                        <span class="chip">
+                            Leadership
+                        </span>
+
+                        <span class="chip">
+                            Development
+                        </span>
+
+                        <span class="chip">
+                            Strategy
+                        </span>
+
                     </div>
+
                 </div>
 
-                <div class="team-card tilt-card-strong">
-                    <img src="akash.jpeg" alt="Akash Deep Shukla" class="avatar">
-                    <h3>Akash Deep Shukla</h3>
-                    <p class="role">Frontend Developer</p>
-                    <p class="bio">
-                        Builds responsive interfaces and frontend interactions with a focus on clean,
-                        practical user experiences.
-                    </p>
-                    <div class="chip-row">
-                        <span class="chip">HTML</span>
-                        <span class="chip">CSS</span>
-                        <span class="chip">JavaScript</span>
-                    </div>
-                </div>
+
+                <!-- ADITYA -->
 
                 <div class="team-card tilt-card-strong">
-                    <img src="sonia.jpeg" alt="Sonia Raidas" class="avatar">
-                    <h3>Sonia Raidas</h3>
-                    <p class="role">Marketing & Communications</p>
-                    <p class="bio">
-                        Handles communication, content direction, outreach and coordination that help
-                        the team present projects professionally.
+
+                    <img
+                        src="Adi.jpeg"
+                        alt="Aditya Singh Chauhan"
+                        class="avatar">
+
+                    <h3>
+                        Aditya Singh Chauhan
+                    </h3>
+
+                    <p class="role">
+                        Database & UI Designer
                     </p>
+
+                    <p class="bio">
+                        Handles database architecture and contributes to
+                        responsive UI/UX decisions across our projects.
+                    </p>
+
                     <div class="chip-row">
-                        <span class="chip">Communication</span>
-                        <span class="chip">Content</span>
-                        <span class="chip">Outreach</span>
+
+                        <span class="chip">
+                            MySQL
+                        </span>
+
+                        <span class="chip">
+                            UI/UX
+                        </span>
+
+                        <span class="chip">
+                            JavaScript
+                        </span>
+
                     </div>
+
                 </div>
 
-                <div class="team-card tilt-card-strong">
-                    <img src="pragyaa.jpeg" alt="Pragya Yadav" class="avatar">
-                    <h3>Pragya Yadav</h3>
-                    <p class="role">Client Relations & Operations</p>
-                    <p class="bio">
-                        Supports client communication, coordination, requirements and smooth movement
-                        of projects from discussion to delivery.
-                    </p>
-                    <div class="chip-row">
-                        <span class="chip">Client Relations</span>
-                        <span class="chip">Negotiation</span>
-                        <span class="chip">Operations</span>
-                    </div>
-                </div>
+
+                <!-- AKASH -->
 
                 <div class="team-card tilt-card-strong">
-                    <img src="adarsh.jpeg" alt="Adarsh Chauraisya" class="avatar">
-                    <h3>Adarsh Chauraisya</h3>
-                    <p class="role">QA & Security</p>
-                    <p class="bio">
-                        Tests project functionality, checks important security concerns and verifies
-                        backend/API behaviour before delivery.
+
+                    <img
+                        src="akash.jpeg"
+                        alt="Akash Deep Shukla"
+                        class="avatar">
+
+                    <h3>
+                        Akash Deep Shukla
+                    </h3>
+
+                    <p class="role">
+                        Frontend Developer
                     </p>
+
+                    <p class="bio">
+                        Builds responsive interfaces and frontend interactions
+                        using modern HTML, CSS and JavaScript.
+                    </p>
+
                     <div class="chip-row">
-                        <span class="chip">QA Testing</span>
-                        <span class="chip">Security</span>
-                        <span class="chip">Backend Testing</span>
+
+                        <span class="chip">
+                            HTML
+                        </span>
+
+                        <span class="chip">
+                            CSS
+                        </span>
+
+                        <span class="chip">
+                            JavaScript
+                        </span>
+
                     </div>
+
+                </div>
+
+
+                <!-- SONIA -->
+
+                <div class="team-card tilt-card-strong">
+
+                    <img
+                        src="sonia.jpeg"
+                        alt="Sonia Raidas"
+                        class="avatar">
+
+                    <h3>
+                        Sonia Raidas
+                    </h3>
+
+                    <p class="role">
+                        Marketing & Communications
+                    </p>
+
+                    <p class="bio">
+                        Handles communication, outreach, content direction
+                        and helps the team maintain strong client relationships.
+                    </p>
+
+                    <div class="chip-row">
+
+                        <span class="chip">
+                            Communication
+                        </span>
+
+                        <span class="chip">
+                            Marketing
+                        </span>
+
+                        <span class="chip">
+                            Content
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRAGYA -->
+
+                <div class="team-card tilt-card-strong">
+
+                    <img
+                        src="pragyaa.jpeg"
+                        alt="Pragya Yadav"
+                        class="avatar">
+
+                    <h3>
+                        Pragya Yadav
+                    </h3>
+
+                    <p class="role">
+                        Client Relations & Operations
+                    </p>
+
+                    <p class="bio">
+                        Coordinates client communication, requirements,
+                        project operations and team collaboration.
+                    </p>
+
+                    <div class="chip-row">
+
+                        <span class="chip">
+                            Client Relations
+                        </span>
+
+                        <span class="chip">
+                            Negotiation
+                        </span>
+
+                        <span class="chip">
+                            Operations
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADARSH -->
+
+                <div class="team-card tilt-card-strong">
+
+                    <img
+                        src="adarsh.jpeg"
+                        alt="Adarsh Chauraisya"
+                        class="avatar">
+
+                    <h3>
+                        Adarsh Chauraisya
+                    </h3>
+
+                    <p class="role">
+                        QA & Security Engineer
+                    </p>
+
+                    <p class="bio">
+                        Tests project functionality, checks security,
+                        verifies backend behaviour and helps maintain quality
+                        before delivery.
+                    </p>
+
+                    <div class="chip-row">
+
+                        <span class="chip">
+                            QA Testing
+                        </span>
+
+                        <span class="chip">
+                            Security
+                        </span>
+
+                        <span class="chip">
+                            Backend Testing
+                        </span>
+
+                    </div>
+
                 </div>
 
             </div>
+
         </div>
+
     </section>
 
-    <!-- Pricing -->
+
+    <!-- =========================================================
+         OUR JOURNEY
+         ========================================================= -->
+
     <section class="section bg-darker">
+
         <div class="container">
-            <p class="eyebrow">// packages.starting_from</p>
-            <h2 class="section-title">Simple packages for growing businesses</h2>
-            <p class="section-lede">
-                Every business is different, so final pricing depends on pages, functionality and content.
+
+            <p class="eyebrow">
+                // journey.log
             </p>
 
-            <div class="skills-grid">
+            <h2 class="section-title">
+                From students to builders.
+            </h2>
 
-                <div class="skill-category tilt-card">
-                    <h3>Starter</h3>
-                    <p class="tech-stack">From ₹4,999</p>
-                    <p>Best for a small business that needs a clean online presence.</p>
-                    <div class="tags">
-                        <span class="tag">1–3 Pages</span>
-                        <span class="tag">Responsive</span>
-                        <span class="tag">WhatsApp</span>
-                        <span class="tag">Contact Form</span>
-                    </div>
+            <p class="section-lede">
+                We started by learning technology in classrooms.
+                Then we started building with it.
+            </p>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <span class="timeline-dot"></span>
+
+                    <span class="timeline-date">
+                        START
+                    </span>
+
+                    <p>
+                        Six students came together with a shared interest
+                        in development, design and technology.
+                    </p>
+
                 </div>
 
-                <div class="skill-category tilt-card">
-                    <h3>Business</h3>
-                    <p class="tech-stack">From ₹9,999</p>
-                    <p>A more complete website for businesses ready to look established online.</p>
-                    <div class="tags">
-                        <span class="tag">5–7 Pages</span>
-                        <span class="tag">Premium UI</span>
-                        <span class="tag">Maps</span>
-                        <span class="tag">SEO Basics</span>
-                    </div>
+
+                <div class="timeline-item">
+
+                    <span class="timeline-dot"></span>
+
+                    <span class="timeline-date">
+                        BUILD
+                    </span>
+
+                    <p>
+                        We began creating websites and digital systems
+                        instead of keeping our work limited to coursework.
+                    </p>
+
                 </div>
 
-                <div class="skill-category tilt-card">
-                    <h3>Custom</h3>
-                    <p class="tech-stack">From ₹19,999</p>
-                    <p>For custom systems that need databases, dashboards, authentication or advanced functionality.</p>
-                    <div class="tags">
-                        <span class="tag">Web App</span>
-                        <span class="tag">Database</span>
-                        <span class="tag">Admin Panel</span>
-                        <span class="tag">Custom Features</span>
-                    </div>
+
+                <div class="timeline-item">
+
+                    <span class="timeline-dot"></span>
+
+                    <span class="timeline-date">
+                        LIVE
+                    </span>
+
+                    <p>
+                        Our projects moved from local development environments
+                        to real websites used by organizations and businesses.
+                    </p>
+
                 </div>
 
-                <div class="skill-category tilt-card">
-                    <h3>Maintenance</h3>
-                    <p class="tech-stack">Custom monthly plans</p>
-                    <p>Keep your website updated after launch with content changes, fixes and improvements.</p>
-                    <div class="tags">
-                        <span class="tag">Updates</span>
-                        <span class="tag">Bug Fixes</span>
-                        <span class="tag">Support</span>
-                    </div>
+
+                <div class="timeline-item">
+
+                    <span class="timeline-dot"></span>
+
+                    <span class="timeline-date">
+                        NEXT
+                    </span>
+
+                    <p>
+                        We are building Velocity Studios into a professional
+                        student-led digital agency, one project at a time.
+                    </p>
+
                 </div>
 
             </div>
+
         </div>
+
     </section>
 
-    <!-- Final CTA -->
-    <section class="section">
-        <div class="container">
-            <p class="eyebrow">// ready_to_launch</p>
-            <h2 class="section-title">Your business deserves a better website.</h2>
-            <p class="section-lede">
-                Tell us what you do, what you need and what you want your website to achieve.
-                We'll discuss the right approach for your business.
-            </p>
 
-            <div class="cta-group" style="justify-content:center;">
-                <a href="#contact" class="btn btn-primary">Start Your Project →</a>
-                <a href="#projects" class="btn btn-secondary">View Our Work</a>
-            </div>
-        </div>
-    </section>
+    <!-- =========================================================
+         CONTACT
+         ========================================================= -->
 
-    <!-- Contact -->
     <section id="contact" class="section bg-darker">
+
         <div class="container contact-container">
 
-            <div class="contact-text">
-                <p class="eyebrow">// project.request()</p>
-                <h2 class="section-title" style="text-align:left;">Let's build something for your business.</h2>
 
-                <p>
-                    Looking for a business website, web application or a digital refresh?
-                    Send us your requirements and our team will get back to you.
+            <div class="contact-text">
+
+                <p class="eyebrow">
+                    // contact.send()
                 </p>
 
-                <div class="cta-group">
-                    <a href="https://chat.whatsapp.com/DfCpQzQNth8ApleIJrL2cN" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        WhatsApp Us ↗
-                    </a>
+                <h2
+                    class="section-title"
+                    style="text-align: left;">
 
-                    <a href="https://www.instagram.com/velocity.studios_108" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                        Instagram ↗
-                    </a>
-                </div>
+                    Let's build something.
+
+                </h2>
+
+                <p>
+                    Have a business, startup, organization or idea that
+                    needs a website? Tell us what you need and our team
+                    will get back to you.
+                </p>
+
             </div>
 
-            <form id="contact-form" class="contact-form">
-                <input type="hidden" name="access_key" value="2d0c9e83-ccb6-4052-9167-597a8ea749c7">
-                <input type="hidden" name="subject" value="New Website Project Inquiry - Velocity Studios">
-                <input type="hidden" name="from_name" value="Velocity Studios Website">
-                <input type="hidden" name="replyto" value="%email%">
+
+            <form
+                id="contact-form"
+                class="contact-form">
+
+                <!-- Web3Forms Access Key -->
+
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="2d0c9e83-ccb6-4052-9167-597a8ea749c7">
+
 
                 <div class="form-group">
-                    <input type="text" name="name" id="name" placeholder="Your name / business name" required>
+
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Your name"
+                        required>
+
                 </div>
+
 
                 <div class="form-group">
-                    <input type="email" name="email" id="email" placeholder="Your email address" required>
+
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Your email"
+                        required>
+
                 </div>
+
 
                 <div class="form-group">
-                    <textarea name="message" id="message" rows="6" placeholder="Tell us about your business and what you need..." required></textarea>
+
+                    <textarea
+                        name="message"
+                        id="message"
+                        rows="5"
+                        placeholder="Tell us about your project"
+                        required></textarea>
+
                 </div>
 
-                <button type="submit" class="btn btn-primary">Send Project Enquiry →</button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Send Project Inquiry
+
+                </button>
+
             </form>
 
         </div>
+
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <h2>[Velocity<span class="accent"> Studios</span>]</h2>
 
-            <p>
-                Student-led web development team building professional digital solutions for businesses.
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <h2>
+                [Velocity<span class="accent"> Studios</span>]
+            </h2>
+
+
+            <p style="
+                max-width: 520px;
+                margin: 10px auto 20px;
+                color: rgba(255,255,255,0.48);
+                font-size: 0.82rem;
+                line-height: 1.6;
+            ">
+
+                A student-led web development team building
+                modern digital experiences for businesses,
+                organizations and startups.
+
             </p>
 
+
             <div class="social-links">
-                <a href="https://www.instagram.com/velocity.studios_108" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://chat.whatsapp.com/DfCpQzQNth8ApleIJrL2cN" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
+                <a
+                    href="https://www.instagram.com/velocity.studios_108?igsh=OXNpcmFjbnJxYmQ4"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Instagram
+
+                </a>
+
+
+                <a
+                    href="https://chat.whatsapp.com/DfCpQzQNth8ApleIJrL2cN"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    WhatsApp
+
+                </a>
+
             </div>
 
-            <p>&copy; 2026 Velocity Studios. All rights reserved.</p>
+
+            <p>
+                &copy; 2026 Velocity Studios.
+                Built by students. Driven by creativity. Focused on results.
+            </p>
+
         </div>
+
     </footer>
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
     <script src="script.js"></script>
+
 </body>
+
 </html>

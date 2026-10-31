@@ -1,5 +1,84 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* 0. Mandatory Visitor Inquiry Modal Logic */
+    const modalOverlay = document.getElementById('visitor-inquiry-modal');
+    const inquiryForm = document.getElementById('visitor-inquiry-form');
+    const purposeSelect = document.getElementById('visitor-purpose-select');
+    const otherGroup = document.getElementById('visitor-other-group');
+    const otherTextarea = document.getElementById('visitor-other-purpose');
+    const submitBtn = document.getElementById('visitor-submit-btn');
+
+    // Prevent Escape key from closing the mandatory modal
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay && !modalOverlay.classList.contains('hidden')) {
+            e.preventDefault();
+        }
+    });
+
+    // Show/hide and require custom text area when "Other" is selected
+    if (purposeSelect && otherGroup && otherTextarea) {
+        purposeSelect.addEventListener('change', () => {
+            if (purposeSelect.value === 'Other') {
+                otherGroup.classList.remove('hidden-field');
+                otherTextarea.setAttribute('required', 'required');
+                otherTextarea.focus();
+            } else {
+                otherGroup.classList.add('hidden-field');
+                otherTextarea.removeAttribute('required');
+                otherTextarea.value = '';
+            }
+        });
+    }
+
+    if (inquiryForm && modalOverlay) {
+        inquiryForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nameVal = document.getElementById('visitor-name').value.trim();
+            const emailVal = document.getElementById('visitor-email').value.trim();
+            const selectedPurpose = purposeSelect.value;
+            const otherVal = otherTextarea ? otherTextarea.value.trim() : '';
+
+            if (!nameVal || !emailVal || !selectedPurpose) {
+                return;
+            }
+
+            if (selectedPurpose === 'Other' && !otherVal) {
+                otherTextarea.focus();
+                return;
+            }
+
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(inquiryForm);
+            const object = Object.fromEntries(formData);
+
+            // Combine purpose clearly if 'Other' was selected
+            if (selectedPurpose === 'Other') {
+                object.purpose_of_visit = `Other: ${otherVal}`;
+            }
+
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .catch(error => {
+                console.error('Submission note:', error);
+            })
+            .finally(() => {
+                modalOverlay.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            });
+        });
+    }
+
     /* 1. Mobile Hamburger Menu Toggle */
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -157,8 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '$ ./run --projects',
         '[ok] KLM & Aditya Foundation (live) .......... compiled',
         '[ok] Dream Computer Institute (live) ...... compiled',
-        '[ok] PK Prainting  ... compiled',
-        '[ok] The Rustic Fork ..... compiled',
+        '[ok] PK Painting .......................... compiled',
+        '[ok] The Rustic Fork ...................... compiled',
         '$ status: all systems shipped'
     ];
 

@@ -32,6 +32,160 @@
 
     <style>
         /* =========================================================
+           MANDATORY VISITOR INQUIRY POPUP MODAL
+           ========================================================= */
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .inquiry-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 6, 9, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .inquiry-modal-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .inquiry-modal-box {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg, #111419);
+            border: 1px solid rgba(0, 229, 160, 0.35);
+            border-radius: 16px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(0, 229, 160, 0.08);
+            position: relative;
+            max-height: 92vh;
+            overflow-y: auto;
+        }
+
+        .inquiry-modal-eyebrow {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            color: var(--accent, #00e5a0);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .inquiry-modal-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #eef1f5;
+            margin-bottom: 0.4rem;
+        }
+
+        .inquiry-modal-sub {
+            font-size: 0.88rem;
+            color: var(--text-muted, #7e8a9a);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .inquiry-modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .inquiry-modal-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            text-align: left;
+        }
+
+        .inquiry-modal-group.hidden-field {
+            display: none;
+        }
+
+        .inquiry-modal-group label {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .inquiry-modal-group input,
+        .inquiry-modal-group select,
+        .inquiry-modal-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-panel, #0d1016);
+            border: 1px solid var(--border, #1b2029);
+            border-radius: 8px;
+            color: #eef1f5;
+            font-family: "Inter", sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.25s ease;
+        }
+
+        .inquiry-modal-group select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300e5a0' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .inquiry-modal-group select option {
+            background: #0d1016;
+            color: #eef1f5;
+        }
+
+        .inquiry-modal-group input:focus,
+        .inquiry-modal-group select:focus,
+        .inquiry-modal-group textarea:focus {
+            outline: none;
+            border-color: var(--accent, #00e5a0);
+        }
+
+        .inquiry-modal-submit {
+            margin-top: 0.5rem;
+            width: 100%;
+            padding: 0.9rem;
+            border-radius: 8px;
+            background: var(--accent, #00e5a0);
+            color: #05130d;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .inquiry-modal-submit:hover {
+            background: var(--accent-hover, #17ffb8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 160, 0.25);
+        }
+
+        .inquiry-modal-note {
+            margin-top: 0.9rem;
+            text-align: center;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.42);
+        }
+
+        /* =========================================================
            WEBSITE PACKAGE SECTION
            Self-contained CSS - no style.css changes required
            ========================================================= */
@@ -593,6 +747,10 @@
             .professional-project-image {
                 height: 210px;
             }
+
+            .inquiry-modal-box {
+                padding: 1.6rem 1.3rem;
+            }
         }
 
         @media (max-width: 450px) {
@@ -608,7 +766,61 @@
 </head>
 
 
-<body>
+<body class="modal-open">
+
+    <!-- =========================================================
+         MANDATORY VISITOR INQUIRY POPUP
+         ========================================================= -->
+
+    <div id="visitor-inquiry-modal" class="inquiry-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="inquiry-modal-box">
+            <p class="inquiry-modal-eyebrow">// visitor.inquiry()</p>
+            <h2 id="modal-title" class="inquiry-modal-title">Welcome to Velocity <span class="accent">Studios</span></h2>
+            <p class="inquiry-modal-sub">Please share your details below to explore our portfolio and website packages.</p>
+
+            <form id="visitor-inquiry-form" class="inquiry-modal-form">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="2d0c9e83-ccb6-4052-9167-597a8ea749c7">
+                <input type="hidden" name="subject" value="New Visitor Inquiry Popup — Velocity Studios">
+
+                <div class="inquiry-modal-group">
+                    <label for="visitor-name">Full Name *</label>
+                    <input type="text" id="visitor-name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="inquiry-modal-group">
+                    <label for="visitor-email">Email Address *</label>
+                    <input type="email" id="visitor-email" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="inquiry-modal-group">
+                    <label for="visitor-purpose-select">Purpose of Visit *</label>
+                    <select id="visitor-purpose-select" name="purpose_of_visit" required>
+                        <option value="" disabled selected>Select your purpose of visit...</option>
+                        <option value="Build a Business / Startup Website">Build a Business / Startup Website</option>
+                        <option value="Launch an E-Commerce Store">Launch an E-Commerce Store</option>
+                        <option value="Redesign an Existing Website">Redesign an Existing Website</option>
+                        <option value="Explore Packages & Pricing">Explore Packages & Pricing</option>
+                        <option value="Check Live Portfolio / Projects">Check Live Portfolio / Projects</option>
+                        <option value="Collaboration / Career Inquiry">Collaboration / Career Inquiry</option>
+                        <option value="Other">Other (Please specify)</option>
+                    </select>
+                </div>
+
+                <div id="visitor-other-group" class="inquiry-modal-group hidden-field">
+                    <label for="visitor-other-purpose">Please Specify Your Purpose *</label>
+                    <textarea id="visitor-other-purpose" name="other_purpose_details" rows="3" placeholder="Tell us specifically what brings you to Velocity Studios..."></textarea>
+                </div>
+
+                <button type="submit" id="visitor-submit-btn" class="inquiry-modal-submit">
+                    Continue to Website →
+                </button>
+            </form>
+
+            <p class="inquiry-modal-note">* Mandatory inquiry required for site access</p>
+        </div>
+    </div>
+
 
     <!-- =========================================================
          GRAIN / SCANLINE OVERLAY
@@ -1597,7 +1809,11 @@
                     </ul>
 
 
-                    <a href="#contact" class="package-button">
+                    <a
+                        href="https://wa.me/message/QGO5LTWMNCLSD1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="package-button">
                         START YOUR WEBSITE →
                     </a>
 
@@ -1678,8 +1894,12 @@
                     </ul>
 
 
-                    <a href="#contact" class="package-button">
-                        GROW YOUR BUSINESS →
+                    <a
+                        href="https://wa.me/message/QGO5LTWMNCLSD1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="package-button">
+                        START YOUR WEBSITE →
                     </a>
 
                 </article>
@@ -1759,8 +1979,12 @@
                     </ul>
 
 
-                    <a href="#contact" class="package-button">
-                        GO PREMIUM →
+                    <a
+                        href="https://wa.me/message/QGO5LTWMNCLSD1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="package-button">
+                        LEARN MORE →
                     </a>
 
                 </article>
@@ -1848,8 +2072,12 @@
                     </ul>
 
 
-                    <a href="#contact" class="package-button">
-                        START SELLING ONLINE →
+                    <a
+                        href="https://wa.me/message/QGO5LTWMNCLSD1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="package-button">
+                        START YOUR WEBSITE →
                     </a>
 
                 </article>
@@ -1859,16 +2087,17 @@
 
             <div class="pricing-note">
 
-    <strong>Important:</strong>
-    All prices are starting prices and are for website development only.
-    <strong>Domain name and web hosting are NOT included</strong> in any package
-    and will be charged separately if required.
+                <strong>Important:</strong>
+                All prices are starting prices and are for website development only.
+                <strong>Domain name and web hosting are NOT included</strong> in any package
+                and will be charged separately if required.
 
-    Final pricing may vary depending on the number of pages,
-    custom features, advanced functionality, third-party services,
-    payment gateway requirements and other project-specific requirements.
+                Final pricing may vary depending on the number of pages,
+                custom features, advanced functionality, third-party services,
+                payment gateway requirements and other project-specific requirements.
 
-</div>
+            </div>
+
         </div>
 
     </section>

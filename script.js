@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const otherTextarea = document.getElementById('visitor-other-purpose');
     const submitBtn = document.getElementById('visitor-submit-btn');
 
+    // If user already submitted in this browser session, unlock immediately
+    if (sessionStorage.getItem('velocity_inquiry_completed') === 'true') {
+        if (modalOverlay) modalOverlay.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+    }
+
     // Prevent Escape key from closing the mandatory modal
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalOverlay && !modalOverlay.classList.contains('hidden')) {
@@ -31,15 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (inquiryForm && modalOverlay) {
-        inquiryForm.addEventListener('submit', function (e) {
+        inquiryForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             const nameVal = document.getElementById('visitor-name').value.trim();
             const emailVal = document.getElementById('visitor-email').value.trim();
+            const phoneVal = document.getElementById('visitor-phone').value.trim();
             const selectedPurpose = purposeSelect.value;
             const otherVal = otherTextarea ? otherTextarea.value.trim() : '';
 
-            if (!nameVal || !emailVal || !selectedPurpose) {
+            if (!nameVal || !emailVal || !phoneVal || !selectedPurpose) {
                 return;
             }
 
@@ -48,34 +55,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            submitBtn.textContent = 'Submitting...';
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting Inquiry...';
             submitBtn.disabled = true;
 
             const formData = new FormData(inquiryForm);
             const object = Object.fromEntries(formData);
 
-            // Combine purpose clearly if 'Other' was selected
+            // Combine purpose clearly if 'Other' was selected, otherwise remove empty field
             if (selectedPurpose === 'Other') {
                 object.purpose_of_visit = `Other: ${otherVal}`;
             }
+            delete object.other_purpose_details;
 
             const json = JSON.stringify(object);
 
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .catch(error => {
-                console.error('Submission note:', error);
-            })
-            .finally(() => {
-                modalOverlay.classList.add('hidden');
-                document.body.classList.remove('modal-open');
-            });
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                const result = await response.json();
+
+                if (response.status === 200 && result.success) {
+                    sessionStorage.setItem('velocity_inquiry_completed', 'true');
+                    modalOverlay.classList.add('hidden');
+                    document.body.classList.remove('modal-open');
+                    inquiryForm.reset();
+                } else {
+                    console.error('Web3Forms Error:', result);
+                    alert('Could not submit inquiry: ' + (result.message || 'Please check your details and try again.'));
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+            } catch (error) {
+                console.error('Fetch Error:', error);
+                alert('Network error while sending inquiry. Please make sure you are running on a local server (Live Server) or hosted website.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         });
     }
 
@@ -84,28 +107,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
     const navItems = document.querySelectorAll('.nav-links li a');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('toggle');
-    });
-
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
         });
-    });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+    }
 
     /* 2. Navbar background on scroll */
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(6, 7, 10, 0.92)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
-        } else {
-            navbar.style.background = 'rgba(6, 7, 10, 0.75)';
-            navbar.style.boxShadow = 'none';
-        }
-    }, { passive: true });
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(6, 7, 10, 0.92)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
+            } else {
+                navbar.style.background = 'rgba(6, 7, 10, 0.75)';
+                navbar.style.boxShadow = 'none';
+            }
+        }, { passive: true });
+    }
 
     /* 3. Reveal elements on scroll */
     const sections = document.querySelectorAll('.section, .stats-strip');
@@ -156,13 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(async (response) => {
                 let res = await response.json();
-                if (response.status === 200) {
+                if (response.status === 200 && res.success) {
                     btn.textContent = 'Message sent! ✓';
                     btn.style.background = 'var(--secondary)';
                     contactForm.reset();
                 } else {
                     btn.textContent = 'Failed to send';
-                    console.error(res.message);
+                    console.error('Web3Forms Error:', res.message);
                 }
             })
             .catch(error => {
@@ -231,14 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 7. Terminal boot-sequence typewriter */
     const terminalBody = document.getElementById('terminal-body');
     const bootLines = [
-        '$ whoami',
+        '\$ whoami',
         'velocity_studios — Fast. Scalable. Velocity.',
-        '$ ./run --projects',
+        '\$ ./run --projects',
         '[ok] KLM & Aditya Foundation (live) .......... compiled',
         '[ok] Dream Computer Institute (live) ...... compiled',
         '[ok] PK Painting .......................... compiled',
         '[ok] The Rustic Fork ...................... compiled',
-        '$ status: all systems shipped'
+        '\$ status: all systems shipped'
     ];
 
     function typeTerminal() {
